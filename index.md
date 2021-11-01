@@ -1,7 +1,7 @@
 ---
 layout: home
 profile_picture:
-  src: /assets/img/beta.png
+  src: /assets/img/cpu.png
   alt: website picture
 ---
 # Welcome to 50.002 Computation Structures

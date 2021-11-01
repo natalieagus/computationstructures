@@ -1,4 +1,4 @@
-﻿---
+---
 layout: academic
 permalink: /problemsets/problemset4
 title: Problem Set 4
