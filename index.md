@@ -4,11 +4,15 @@ profile_picture:
   src: /assets/img/beta.png
   alt: website picture
 ---
+# Welcome to Computation Structures
 
-<p>
-  Welcome! This site serves as an example for the Bay Jekyll theme. Bay is a very simple and minimal theme, directly inspired by Dan Grover's <a href="http://dangrover.com">website</a>.
-</p>
+This course introduces the **architecture** of digital systems, emphasising structural principles common to a wide range of technologies, including:
+* Multi-level implementation strategies
+* Definition of new primitives (e.g., gates, instructions, procedures, and processes), and 
+* Their mechanisation using lower-level elements. 
 
-<p>
-  You can find the source code and the instructions on <a href="https://github.com/eliottvincent/bay">GitHub</a>.
-</p>
+By the end of this course, you're also expected to know about: 
+* Analysis of potential concurrency and precedence constraints, and performance measures.
+* Instruction set design issues and architectural support for contemporary software structures.
+
+Have fun!
