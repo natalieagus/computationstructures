@@ -61,7 +61,9 @@ Finally, **what is the result stored in R0?**
 
 
 
-<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
+<div cursor="pointer" class="collapsible">Show Answer</div>
+<div class="content"><p>
+
 The machine language is:
 <pre><code>I = 0x5678
 B = 0x1234
@@ -85,6 +87,7 @@ Explanation:
 <li>  <strong>Line 5:</strong> Store / copy the content of register R1 to the memory unit with address <code>EA</code>: <code>EA</code>= <code>B</code> + content of register <code>R0</code>.
 </ul>
 The result of <code>R0</code> is the content of memory address I: <code>Mem[I]</code> multiplied by 4.
+
 </p></div><br>
 
 ## Non $\beta$ Architecture Benchmarking (Basic)
