@@ -5,6 +5,32 @@ title: Introduction to something
 description: Thunder is a lightning fast responsive theme based on default Jekyll theme. It is minimal and free from JavaScript. It has a css file of size 5kb. This theme is best suited for minimal blogs.
 ---
 
+
+* TOC
+{:toc}
+
+50.002 Computation Structures
+Information Systems Technology and Design
+Singapore University of Technology and Design
+
+# Problem Set 1
+
+This page contains all practice questions that constitutes the topics learned in <ins>Week 1</ins>: **Basics of Information** and **The Digital Abstraction**. 
+
+Each topic's questions are grouped into **three** categories: basic, intermediate, and challenging. You are recommended to do all basic problem set before advancing further. 
+
+# Basics of Information 
+You can refer to the notes <a href="https://natalieagus.github.io/50002/basics_of_information.html" target="_blank">here</a> if you need to revise. 
+
+## Warm Up (Basic)
+
+Suppose that you are to guess the value of a 16-bit number: 0x$Z_1Z_2Z_3Z_4$ You are told that the value of $Z_1$ is B. Thus you have been given [N] bits of information. **What is the value of [N]?**
+
+<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
+Obviously $Z_x$ represents **4 bits** since these are in hexadecimal number system (indicated with the prefix  <code>0x</code>.) 
+<br><br>
+We are literally <i>told</i> that the first hex digit is $B = 1011$. Hence we are given <strong>4 bits of information</strong>.  There are still other 12 bits which values we do not know.</p></div>
+
 * TOC
 {:toc}
 
