@@ -4,7 +4,7 @@ profile_picture:
   src: /assets/img/beta.png
   alt: website picture
 ---
-# Welcome to Computation Structures
+# Welcome to 50.002 Computation Structures
 
 This course introduces the **architecture** of digital systems, emphasising structural principles common to a wide range of technologies, including:
 * Multi-level implementation strategies
