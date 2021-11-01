@@ -20,9 +20,12 @@ header:
 footer:
   show_powered_by: false
   contact:
-    - name: Natalie Agus
+    - name: Email
       value: natalie_agus@sutd.edu.sg
       link: mailto:natalie_agus@sutd.edu.sg
+    # - name: WeChat
+    #   value: YourWeChatUsername
+    #   link: "#"
   # follow:
   #   - name: Twitter
   #     link: http://twitter.com/YourTwitterUsername
