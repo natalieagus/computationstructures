@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Collection of Tutorials
+title: 50.002 Problem Sets
 ---
 
-{% for t in site.tutorials %}
+{% for t in site.problemsets %}
 
 <h2><a href="{{ t.url"" | prepend: site.baseurl | prepend: site.url }}">{{ t.title }}</a></h2>
 

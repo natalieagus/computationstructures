@@ -12,10 +12,9 @@ header:
   pages:
     - name: Home
       slug: /
-    - name: Work
-    - name: Blog
-    - name: Publications
-    - name: Tutorials
+    - name: Notes
+    - name: Exercise
+    - name: FPGA
 
 footer:
   show_powered_by: false
