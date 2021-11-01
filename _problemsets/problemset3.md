@@ -51,7 +51,7 @@ The components labeled CL1 and CL2 are combinational; R1 and R2 are edge trigger
 	\end{aligned}$$
 	<div class="redbox">From this, hopefully you realise that the $t_{PD}$ and $t_{CD}$ of a sequential circuit is counted from the <strong>last</strong> downstream register(s) -- there can be more than one -- in the circuit because our reference "input" is no longer IN but the CLK.<br><br>Similarly, $t_S$ and $t_H$ is concerning the path from IN until the <strong>first</strong> upstream register(s) -- there can be more than one -- in the circuit.<br><br><strong>The dynamic discipline is always obeyed in any middle path</strong> between two DFFs or register in the circuit because of the hardware characteristics ($t_{CD}$s and CLK period) of the sequential circuit, so we don't need to worry about that. Therefore the definition of $t_S$ and $t_H$ of the <strong>entire</strong> circuit is only concerning the first upstream register, because this is where we need need to be wary of its $t_S$ and $t_H$ since it has to be fulfilled by the (unreliable) external input.</div>
 	</p>
-	</div>
+	</div><br>
 	
 	
 3. Suppose you had available a faster version of CL2 having a propagation delay of 3 and a contamination delay of zero. Could you substitute the faster CL2 for the one shown in the diagram **Explain.**
@@ -61,7 +61,7 @@ The components labeled CL1 and CL2 are combinational; R1 and R2 are edge trigger
 	
 	No we can't. The contamination delay for R1 is 1, while the contamination delay for CL2 is 0. After CLK change, R2 input is valid and stable for 1s due to $t_{CD}$ of CL2 before turning invalid, but its $t_H$ required is 8.5s.
 	</p>
-	</div>
+	</div><br>
 
 ## Timing Plot Analysis (Basic)
 Consider the following unusual D-latch configuration:
@@ -99,7 +99,7 @@ Setup time, hold time, propagation delay, and contamination delay (all in nanose
 
 	Hence, minimum acceptable $t_{CD}$ of CL1 is $t_{H}$ R1 - $t_{CD}$ R1 = 1.2 - 0.3 = 0.9ns.
 	</p>
-	</div>
+	</div><br>
 
 1.  Write down the minimum CLK period for the sequential circuit to function properly.
 
@@ -108,7 +108,7 @@ Setup time, hold time, propagation delay, and contamination delay (all in nanose
 	<p>
 	The clock period must be big enough for signals to propagate from the upstream registers on the left to any downstream registers R1 or R4.<br><br>There are <strong>six</strong> paths to be considered in total where $t_2$ constraint must be obeyed in <strong>all</strong> of them: R1-CL1-R1, R1-CL1-R4, R2-CL1-R1, R2-CL1-R4, R3-CL1-R1, and R3-CL1-R4.<br><br>The longest path is formed by the $t_{PD}$ of R3 + $t_{PD}$ CL1 + $t_{S}$ R1 = 1.5 + 2 + 2 = 5.5ns.
 	</p>
-	</div>
+	</div><br>
 
 1.  Write down the minimum hold time ($t_{H}$) for the IN signal to the system.
 
@@ -117,7 +117,7 @@ Setup time, hold time, propagation delay, and contamination delay (all in nanose
 	<p>
 	The input must satisfy the $t_{H}$ of both R2 and R3, which is 2ns.
 	</p>
-	</div>
+	</div><br>
 	
 1.  Write down the propagation time of the sequential logic circuit.
 
@@ -126,7 +126,7 @@ Setup time, hold time, propagation delay, and contamination delay (all in nanose
 	<p>
 	The propagation time of the circuit is counted from R4 onwards since it is the last register in the circuit, hence it $t_{PD}$ R4 + $t_{PD}$ CL2 = 3.5ns.
 	</p>
-	</div>
+	</div><br>
 
 
 ## Metastable State Analysis (Basic)
@@ -143,14 +143,14 @@ We are given the following specification about the multiplexer's valid operating
 	<p>
 	We plot the line $Vout == Vin$ and find the intersection with the VTC curve to be approximately at 2.35V. This is the Vin value that has the highest probability for the device to stay in metastable state.
 	</p>
-	</div>
+	</div><br>
 
 1.  Compare $V_{IN} = 0.9V$ vs $V_{IN} = 3V$. Which input voltage will most likely  cause the device stay in the metastable state?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content">
 	<p>
 	Both input voltage values are <strong>valid</strong> inputs. Therefore the device will <strong>always produce valid output voltages</strong> since it obeys the static discipline. We can say that both values are equally unlikely to stay in the metastable state.
 	</p>
-	</div>
+	</div><br>
 
 1.  Compare $V_{IN} = 2.1V$ vs $V_{IN} = 2.5V$. Which input voltage will most likely  cause the device stay in the metastable state?
 
@@ -158,7 +158,7 @@ We are given the following specification about the multiplexer's valid operating
 	<p>
 	Both input voltage values are <i>invalid</i> inputs. <br><br>From the graph, we can deduce that $V_{IN} = 2.1V$ results in $V_{OUT} = 1V$, while $V_{IN} = 2.5V$  results in $V_{OUT} = 3.3V$. <br><br>Taking $2.35V$ as the most likely voltage value for the device to stay in the metastable state, $3.3V$ is nearer to $2.35V$ as opposed to $1V$. Hence, we can deduce that  $V_{IN} = 2.5V$ is more likely to cause the device to stay in the metastable state.
 	</p>
-	</div>
+	</div><br>
 
 ## Determining Suitable Clock Period (Intermediate)
 
@@ -185,7 +185,7 @@ Answer the following questions:
 	<br>
 	We need to find the largest value of $t_{CLK}$ that satisfies both constraints. This comes from the first constraint that requires $t_{CLK} \geq$ 2.5s.
 	</p>
-	</div>
+	</div><br>
 
 1.  A sharp-eyed student suggests optimizing the circuit by removing the pair of inverters and connecting the Q output of the left register directly to the D input of the right register. If the clock period could be adjusted appropriately, would the optimized circuit operate correctly? If yes, explain the adjustment to the clock period will be needed. 
 
@@ -193,7 +193,7 @@ Answer the following questions:
 	<p>
 	No, the circuit won't operate correctly since $t_{CD.REG} < t_{HOLD.REG}$, i.e., the output of the left register doesn't meet the required hold time when connected directly to the input of the right register.
 	</p>
-	</div>
+	</div><br>
 
 1.  When the RESET signal is set to "1" for several cycles, what values are `S0` and `S1` set to?
 
@@ -202,7 +202,7 @@ Answer the following questions:
 	<p>
 	<code>S0 = 0, S1 = 0</code>
 	</p>
-	</div>
+	</div><br>
 
 1.  Assuming the RESET signal has been set to "0" and will stay that way, what is the state following S0=1 and S1=1?
 
@@ -210,7 +210,7 @@ Answer the following questions:
 	<p>
 	<code>S0 = 1, S1 = 0</code>
 	</p>
-	</div>
+	</div><br>
 
 ## Synchronizability (Basic)
 Which of the following cannot be made to function with perfect reliability, assuming reliable components and connections? **Explain your reasoning.** 
@@ -225,42 +225,42 @@ Some of the specifications refer to "bounded time" which means there is a *speci
 	<br>
 	It may take an arbitrary period, after which it will produce <strong>a decision and a signal</strong> that indicates that its made a decision.
 	</p>
-	</div>
+	</div><br>
 		
 2. A circuit that in bounded time indicates which of two game show contestants pressed their button first.
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content">
 	<p>
 	This is a restatement of the "bounded time arbiter problem", known to be unsolvable in theory. In practice we can build a circuit to solve this problem where the probability of failure is related to $t_{PD}$. For "large" $t_{PD}$ (eg, 10's of nanoseconds in today's technologies) the probability of failure can be made very small (eg, 1 failure in billions of years).
 	</p>
-	</div>
+	</div><br>
 
 3. A circuit that determines if button A was pressed ***before*** a specified deadline. Assume the circuit has an accurate internal signal that transitions from 0 to 1 when the deadline is reached. The output should be 1 if the button was pressed on or before the deadline, 0 if pressed after the deadline. The output should be valid and stable within a specified $t_{PD}$.
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content">
 	<p>
 	This is another restatement of the "bounded time arbiter problem", known to be unsolvable in theory. Of course, given sufficiently long time bounds, we can engineer practical approximate solutions (see the answer to the previous question).
 	</p>
-	</div>
+	</div><br>
 
 4. A circuit that in bounded time indicates which of two game show contestants pressed their button first if the presses were more than 0.1 second apart, otherwise the circuit lights up a "TIE" light.
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content">
 	<p>
 	Not possible, same reasoning as the previous question. This circuit will suffer metastability problems because the decision as to whether the presses were 0.1 seconds apart is subject to metastability problems. 
 	</p>
-	</div>
+	</div><br>
 	
 5. A circuit that in bounded time indicates that at least one button has been pressed by some contestant.
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content">
 	<p>
 	Yes, an <code>OR</code> gate will do the job.
 	</p>
-	</div>
+	</div><br>
 
 6. A circuit that in bounded time indicates that exactly one of the contestants has pressed their button. You can assume there are only two contestants.
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content">
 	<p>
 	Yes, an <code>XOR</code> gate will do the job.
 	</p>
-	</div>
+	</div><br>
 
 
 7. A circuit that has two parts: 
@@ -271,7 +271,7 @@ Some of the specifications refer to "bounded time" which means there is a *speci
 	<p>
 	Both subcircuits will suffer metastability problems. (a) is asking for an arbiter (see part 2 above) and (b) has the same difficulties as outlined for part 3 above.
 	</p>
-	</div>
+	</div><br>
 
 8. A circuit that converts button presses from two contestants into the following two-bit output encoding. The circuit has two inputs, A and B, one for each contestant. A contestant's input will transition from 0 to 1 when he/she presses his/her button. The final output should be:
 
@@ -286,7 +286,7 @@ Some of the specifications refer to "bounded time" which means there is a *speci
 	<p>
 	The low-order bit of the encoding is the signal from A, the high-order bit is the signal from B. Nothing to go metastable here.
 	</p>
-	</div>
+	</div><br>
 
 
 
@@ -400,7 +400,7 @@ Construct a "divisible-by-3" FSM that accepts a binary number entered one bit at
 	\end{matrix}
 	$$
 	</p>
-	</div>
+	</div><br>
 
 3. Write down the boolean equation for the FSM.
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content">
@@ -413,7 +413,7 @@ Construct a "divisible-by-3" FSM that accepts a binary number entered one bit at
 	\end{aligned}
 	$$
 	</p>
-	</div>
+	</div><br>
 
 ## Hardware Implementation of a state machine (Intermediate)
 
@@ -427,35 +427,35 @@ Let's analyse the circuit by answering the questions below:
 	<p>
 	The immediate next state is: <code>AB = 00</code>. You can easily trace this output from the circuit above. 
 	</p>
-	</div>
+	</div><br>
 	
 2. If the circuit has an **initial** state of `AB=00`, and the input at `t=0` is `x=1`, what will the immediate next state be?	
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content">
 	<p>
 	The immediate next state is: <code>AB = 01</code>. You can easily trace this output from the circuit above. 
 	</p>
-	</div>
+	</div><br>
 
 3. If the circuit has a **current** state `AB=01`, and the current input is  `x=1`, what will the immediate next state be?	
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content">
 	<p>
 	The immediate next state is: <code>AB = 10</code>. You can easily trace this output from the circuit above. 
 	</p>
-	</div>
+	</div><br>
 
 4. If the circuit has a **current** state `AB=11`, and the current input is  `x=1`, what will the immediate next state be?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content">
 	<p>
 	The immediate next state is: <code>AB = 11</code>. You can easily trace this output from the circuit above. 
 	</p>
-	</div>
+	</div><br>
 
 5. If the circuit has a **current** state `AB=11`, and the current input is  `x=0`, what will the immediate next state be?	
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content">
 	<p>
 	The immediate next state is: <code>AB = 00</code>. You can easily trace this output from the circuit above. 
 	</p>
-	</div>
+	</div><br>
 
 6. What are the state(s) that can go to state `AB=00` as its ***next*** state?
 
@@ -485,7 +485,7 @@ Let's analyse the circuit by answering the questions below:
 	<p>
 	The clock period has to satisfy the <strong>feedback</strong> path ($t_2$ timing constraint), that is made up with $t_{PD}$ of the <code>dff</code>,  $t_{PD}$ of the <code>AND</code> gate,  $t_{PD}$ of the <code>OR</code> gate, plus $t_S$ of the register. This adds up to <code>2+2+2+1 = 7ns</code>. Hence the maximum frequency is $\frac{1}{(7*10^{-9})}$ <code> = 142.9MHz</code.
 	</p>
-	</div>
+	</div><br>
 
 10. What are the output sequences from `t=1` to `t=16` of the circuit when fed the following input (fed from *left* to *right*): `1101 1111 1110 0010` from `t=0` to `t=15` respectively? Assume that the initial states are `AB=00`.
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content">

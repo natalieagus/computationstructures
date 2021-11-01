@@ -2,7 +2,7 @@
 layout: academic
 permalink: /problemsets/problemset4
 title: Problem Set 4
-description: Week 4 practice questions containing topics from Turing Machine and ISA
+description: Week 4 practice questions containing topics from Turing Machine and ISA.
 ---
 
 
@@ -32,7 +32,7 @@ Ben Bitdiddle's proposed Ph.D. thesis involves writing a program to compute a fu
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 Church's thesis says that if the function can't be computed on any Turing machine, then it can't be computed on any physically realizable machine that we know of. So Ben is out of luck... a Cray <i>supercomputer</i> isn't "super" in that sense.
-</p></div>
+</p></div><br>
   
   
 
@@ -42,7 +42,7 @@ Discouraged by your answer to the last question, Ben has turned his attention to
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 Unfortunately, the Universal FSM will have some fixed number (N) of states built into its design. So it won't have enough states to emulate machines with more than N states. Ben's idea isn't workable, and there's no such thing as "Universal FSM" as he proposed.
-</p></div>
+</p></div><br>
   
 
 
@@ -58,7 +58,7 @@ From the explanation above, we have:
 <li> $o$ = 3</li>
 </ul>
 We can enumerate $2^{(s+o)2^{s+i}}$ FSM, and hence the answer to this question is $2^{80}$
-</p></div>
+</p></div><br>
 
 
 
@@ -84,14 +84,14 @@ Answering this is none other than executing the Turing Machine with the  given t
 <br><br>
 The sequences of the states until <code>HALT</code> is met is:
 <code>S0, S0, S0, S0, S1, S1, S1, S2, S2, S2, HALT</code>
-</p></div>
+</p></div><br>
 
 What is the **final configuration** of the tape after the TM has halted and **what does the TM do**?
 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 The final tape configuration is: <code>_,1,1,0,0,_</code>  It is obvious that the TM adds <code>1</code> to the input number.
-</p></div>
+</p></div><br>
 
 ### Edge Detector Machine (Intermediate)
 
@@ -169,7 +169,7 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 <li> To detect an edge, there's no need to "re-read" previous input. Therefore <strong>Specification 5</strong> is definitely wrong (we only need to move the tape in one direction). </li>
 <li> We only output <code>1</code> once on the occurence of an edge, so the specification shall not output too many <code>1</code>s. You can then start to suspect whether <strong>Specification 2</strong> and <strong>4</strong> are true, and quickly eliminate them from the pool of possible answers.  </li>
 </ul>
-</p></div>
+</p></div><br>
 
 
 # Designing an Instruction Set
@@ -180,14 +180,14 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	$2^{32}$ <strong>bytes</strong> because each address is also 32 bits long in a 32-bit von Neumann machine.
-	</p></div>
+	</p></div><br>
 
 2. Can a CPU have as many registers as possible, in theory?
 
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	<strong>No</strong>. <i>Addresses</i> for each register involved in the instruction must be encoded <i>within the instruction</i>, i.e: 5 bits for 32 registers. An instruction is 32 bits long for $\beta$ architecture, so having too many registers will make encoding infeasible.
-	</p></div>
+	</p></div><br>
 
 3. In Theory, which machine is least powerful but sufficient to compute each of the following functions? Choose for the four following possible choices ranked by its level of "powerfullness":  
 	* Turing Machine (most powerful)
@@ -212,7 +212,7 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 	<strong>Function 3:</strong>  Turing Machine
 	<br>
 	<strong>Function 4:</strong> Combinational Logic
-	</p></div>
+	</p></div><br>
 
 
 ## Memory Addressing (Basic)
@@ -226,7 +226,7 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	1, 2, 3, and 4 are stored at address <code>0, 1, 2, 3</code> respectively.  The hex form is the word: <code>0x04 03 02 01</code>.
-	</p></div>
+	</p></div><br>
 
 
 2. How many bits of addresses are required at minimum to address the following chunk of data, assuming that they are **byte** addressable? 
