@@ -1,8 +1,8 @@
-﻿---
+---
 layout: academic
-permalink: /problemsets/pset8
+permalink: /problemsets/problemset8
 title: Problem Set 8
-description: Week 11 practice Questions
+description: Week 11 practice questions containing topics from Virtual Memory and Virtual Machine.
 ---
 
 * TOC
@@ -25,35 +25,35 @@ Consider a virtual memory system that uses a single-level page map to translate 
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	Increases by 1 bit. Assuming the page size remains the same, there are now twice as many physical pages, so the physical page number needs to expand by 1 bit.
-	</p></div>
+	</p></div><br>
 
 2. If the physical memory size (in bytes) is **doubled**, how does the number of entries in the page map change?
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	No change. The number of entries in the page table is determined by the size of the virtual address and the size of a page – it’s not affected by the size of physical memory.
-	</p></div>
+	</p></div><br>
 
 3. If the virtual memory size (in bytes) is doubled, how does the number of bits in each entry of the page table change?
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	No change. The number of bits in a page table entry is determined by the number of control bits (usually 2: dirty and resident) and the number of physical pages – the size of each entry is not affected by the size of virtual memory.
-	</p></div>
+	</p></div><br>
 
 4. If the virtual memory size (in bytes) is doubled, how does the number of entries in the page map change?
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	The number of entries doubles. Assuming the page size remains the same, there are now twice as many virtual pages and so there needs to be twice as many entries in the page map.
-	</p></div>
+	</p></div><br>
 
 5. If the page size (in bytes) is doubled, how does the number of bits in each entry of the page table change?
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	Each entry is one bit smaller. Doubling the page size while maintaining the size of physical memory means there are half as many physical pages as before. So the size of the physical page number field decreases by one bit.
-	</p></div>
+	</p></div><br>
 
 6. If the page size (in bytes) is doubled, how does the number of entries in the page map change?
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	There are half as many entries. Doubling the page size while maintaining the size of virtual memory means there are half as many virtual pages as before. So the number of page table entries is also cut in half.
-	</p></div>
+	</p></div><br>
 
 7. The following table shows the first 8 entries in the page map. Recall that the valid bit is 1 if the page is resident in physical memory and 0 if the page is on disk or hasn’t been allocated. If there are 1024 ($2^{10}$) bytes per page, what is the physical address corresponding to the decimal virtual address 3956?
 	$$
@@ -72,7 +72,7 @@ Consider a virtual memory system that uses a single-level page map to translate 
 	\end{matrix}$$
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	3956 = 0xF74. So the virtual page number is 3 with a page offset of 0x374. Looking up page table entry for virtual page 3, we see that the page is resident in memory (valid bit = 1) and lives in physical page 2. So the corresponding physical address is (2<<10)+0x374 = 0xB74 = 2932.
-	</p></div>
+	</p></div><br>
 
 
 ## Page Replacement (Basic)
@@ -96,23 +96,23 @@ Consider two possible page-replacement strategies: LRU (the least recently used 
 	access 2: no change => 6 4 3 2<br>
 	access 8: replace 2 => 8 6 4 3<br>
 	access 4: no change => 8 6 4 3
-	</p></div>
+	</p></div><br>
 
 2. Which (if either) replacement strategy will work best when the machine accesses pages in the following (stack) order: (3, 4, 5, 6, 7, 6, 5, 4, 3, 4, 5, 6, 7, 6, ...)?
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	LRU misses on pages 3 & 7, hence having 2/8 miss rate. FIFO doesn’t work well on stack accesses, as it will have 5/8 miss rate.
-	</p></div>
+	</p></div><br>
 
 3. Which (if either) replacement strategy will work best when the machine accesses pages in the following (repeated sequence) order: (3, 4, 5, 6, 7, 3, 4, 5, 6, 7, ...)?
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	Both strategies have a 100% miss rate in the steady state.
-	</p></div>
+	</p></div><br>
 
 4. Which (if either) replacement strategy will work best when the machine accesses pages in a randomly selected order, such as (3, 4, 2, 8, 7, 2, 5, 6, 3, 4, 8, ...)?
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	Neither FIFO nor LRU is guaranteed to be the better strategy in dealing with random accesses since there is no locality to the reference stream.
-	</p></div>
+	</p></div><br>
 
 
 ## VA-PA Address Translation (Basic)
@@ -123,7 +123,7 @@ Consider a virtual memory system that uses a single-level page map to translate 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 The PA is <code>0x0492</code>. You can obtain it by figuring out how many bits is the VPN. Given that there's 1024 bytes per page, this gives us the clue that PO is 10 bits, which means that VPN is consisted of 6 bits: <code> 000111</code>. From the table, we find that the PPN is <code>1</code> for VPN 7. Appending PPN and PO and making it 16 bits hex representation, we have PO: <code> 0010010010 </code> and PPN: <code> 000001 </code>. Appending them together and converting them to results in <code>0x0492</code>.
-</p></div>
+</p></div><br>
 
 
 
@@ -140,7 +140,7 @@ Refer to the state of RAM, pagetable, and TLB above. The addresses in the RAM, D
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	#bits of PO is 4, #bits of PPN is 2, #bits of VPN is 3
-	</p></div>
+	</p></div><br>
 
 2. Which of the following instructions **does not** require access to the pagetable?
 	*	`ST(R0, 0b1111100, R31)`
@@ -150,24 +150,24 @@ Refer to the state of RAM, pagetable, and TLB above. The addresses in the RAM, D
 	
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	You don't require access to the pagetable if the entry is already cached at the TLB. The second instruction and the third instruction requires translation of VPN 3 and VPN 1 which are both present in the TLB -- this means we don't need to access the pagetable anymore. 
-	</p></div>
+	</p></div><br>
 
 3. We want to call the following instruction: `ST(R31, 0b1100100, R31)`. Where is this data with VA of`0b1100100` located?
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	VPN 6 is not resident. Therefore it is on disk. 
-	</p></div>
+	</p></div><br>
 
 4. Where will the content for VPN 6 be located in the RAM after the instruction `ST(R31, 0b1100100, R31)` is executed, i.e: which data -- A, B, C, or D will be replaced by the content of VPN 6?
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	It will replace data B since its PPN is not in the pagetable (means that its not a relevant content and can be overwritten). 
-	</p></div>
+	</p></div><br>
 
 5. Draw the state of the TLB after `ST(R31, 0b1100100, R31)` is executed.
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 	<img src="https://dl.dropboxusercontent.com/s/3q2ydp6117bq1dm/TLBANS.png?raw=1" width="70%" height="70%">
-	</p></div>
+	</p></div><br>
 
 
