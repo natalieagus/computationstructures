@@ -5,6 +5,9 @@ title: Problem Set 7
 description: Week 10 practice Questions
 ---
 
+* TOC
+{:toc}
+
 50.002 Computation Structures
 Information Systems Technology and Design
 Singapore University of Technology and Design

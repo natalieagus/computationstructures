@@ -5,6 +5,9 @@ title: Problem Set 6
 description: Week 9 practice Questions
 ---
 
+* TOC
+{:toc}
+
 50.002 Computation Structures
 Information Systems Technology and Design
 Singapore University of Technology and Design

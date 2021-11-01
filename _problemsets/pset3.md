@@ -5,6 +5,9 @@ title: Problem Set 3
 description: Week 3 practice Questions
 ---
 
+* TOC
+{:toc}
+
 50.002 Computation Structures
 Information Systems Technology and Design
 Singapore University of Technology and Design
