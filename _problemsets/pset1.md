@@ -1,6 +1,6 @@
 ﻿---
 layout: academic
-permalink: /problemsets/ps1
+permalink: /problemsets/pset1
 title: Problem Set 1
 description: Week 1 practice Questions
 ---

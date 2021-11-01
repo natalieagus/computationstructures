@@ -1,6 +1,6 @@
 ﻿---
 layout: academic
-permalink: /problemsets/ps3
+permalink: /problemsets/pset3
 title: Problem Set 3
 description: Week 3 practice Questions
 ---

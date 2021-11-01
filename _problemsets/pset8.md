@@ -1,6 +1,6 @@
 ﻿---
 layout: academic
-permalink: /problemsets/ps8
+permalink: /problemsets/pset8
 title: Problem Set 8
 description: Week 11 practice Questions
 ---

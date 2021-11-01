@@ -1,6 +1,6 @@
 ﻿---
 layout: academic
-permalink: /problemsets/ps5
+permalink: /problemsets/pset5
 title: Problem Set 5
 description: Week 5 practice Questions
 ---

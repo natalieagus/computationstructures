@@ -1,6 +1,6 @@
 ﻿---
 layout: academic
-permalink: /problemsets/ps2
+permalink: /problemsets/pset2
 title: Problem Set 2
 description: Week 2 practice Questions
 ---

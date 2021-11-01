@@ -1,6 +1,6 @@
 ﻿---
 layout: academic
-permalink: /problemsets/ps6
+permalink: /problemsets/pset6
 title: Problem Set 6
 description: Week 9 practice Questions
 ---

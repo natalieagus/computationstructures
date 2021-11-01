@@ -1,6 +1,6 @@
 ﻿---
 layout: academic
-permalink: /problemsets/ps7
+permalink: /problemsets/pset7
 title: Problem Set 7
 description: Week 10 practice Questions
 ---

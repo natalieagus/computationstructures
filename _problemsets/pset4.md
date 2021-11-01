@@ -1,6 +1,6 @@
 ﻿---
 layout: academic
-permalink: /problemsets/ps4
+permalink: /problemsets/pset4
 title: Problem Set 4
 description: Week 4 practice Questions
 ---
