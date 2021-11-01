@@ -63,7 +63,6 @@ Finally, **what is the result stored in R0?**
 
 <div cursor="pointer" class="collapsible">Show Answer</div>
 <div class="content"><p>
-
 The machine language is:
 <pre><code>I = 0x5678
 B = 0x1234
@@ -81,13 +80,12 @@ B = 0x1234
 Explanation:
 <ul>
 <li>  <strong>Line 1:</strong> move the content of the memory unit at <code>EA=I</code> to register <code>R0</code></li>
-<li>  <strong>Line 2:</strong> the content of <code>R0</code> is multiplied by 4 and stored back at register <code>R0</code>
-<li>  <strong>Line 3:</strong> move the content of memory address <code>EA</code>: <code>EA</code>= <code>B</code> + content of register  <code>R0</code>; to register <code>R1</code>.
-<li>  <strong>Line 4:</strong> The content of register <code>R1</code> is multiplied by 17 and stored back at register <code>R1</code>.
-<li>  <strong>Line 5:</strong> Store / copy the content of register R1 to the memory unit with address <code>EA</code>: <code>EA</code>= <code>B</code> + content of register <code>R0</code>.
+<li>  <strong>Line 2:</strong> the content of <code>R0</code> is multiplied by 4 and stored back at register <code>R0</code></li>
+<li>  <strong>Line 3:</strong> move the content of memory address <code>EA</code>: <code>EA</code>= <code>B</code> + content of register  <code>R0</code>; to register <code>R1</code>.</li>
+<li>  <strong>Line 4:</strong> The content of register <code>R1</code> is multiplied by 17 and stored back at register <code>R1</code>.</li>
+<li>  <strong>Line 5:</strong> Store / copy the content of register R1 to the memory unit with address <code>EA</code>: <code>EA</code>= <code>B</code> + content of register <code>R0</code>.</li>
 </ul>
 The result of <code>R0</code> is the content of memory address I: <code>Mem[I]</code> multiplied by 4.
-
 </p></div><br>
 
 ## Non $\beta$ Architecture Benchmarking (Basic)
