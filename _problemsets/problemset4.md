@@ -93,7 +93,7 @@ What is the **final configuration** of the tape after the TM has halted and **wh
 The final tape configuration is: <code>_,1,1,0,0,_</code>  It is obvious that the TM adds <code>1</code> to the input number.
 </p></div><br>
 
-### Edge Detector Machine (Intermediate)
+## Edge Detector Machine (Intermediate)
 
 The figure below shows a particular tape state *before* and *after* a Turing Machine that does *edge detection* is executed for 12 steps (12 clock cycles). 
 
@@ -241,6 +241,6 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 	
 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content"><p>
-	There are 20 bytes in the data above. We need at least $\lceil\log_2(20)\rceil$= <strong>5 bits for addressing.</strong
-	</p>
-	</div>
+
+	There are 20 bytes in the data above. We need at least $\lceil\log_2(20)\rceil$= <strong>5 bits for addressing.</strong>
+	</p></div>
