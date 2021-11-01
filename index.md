@@ -15,4 +15,4 @@ By the end of this course, you're also expected to know about:
 * Analysis of potential concurrency and precedence constraints, and performance measures.
 * Instruction set design issues and architectural support for contemporary software structures.
 
-Have fun!
+*Have fun!*
