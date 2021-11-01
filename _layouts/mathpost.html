@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+
+  <body>
+    {% include header.html %}
+
+    <div class="page-content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </div>
+    {% include footer.html %}
+    
+    {% include foot.html %}
+  </body>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script
+    type="text/javascript"
+    charset="utf-8"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  >
+  </script>
+  <script
+    type="text/javascript"
+    charset="utf-8"
+    src="https://vincenttam.github.io/javascripts/MathJaxLocal.js"
+  >
+  </script>
+
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+    </script>
+
+  <style>
+    .blueborder{
+    border-style:solid;
+    border-color:#287EC7;
+    padding: 10px;
+    }
+    
+    .redborder{
+    border-style:solid;
+    border-color:#FF0000;
+    padding: 10px;
+    }
+    
+    
+    .greenbox{
+    background-color: #cfc ;
+    padding: 10px; 
+    border: 1px solid green;
+    }
+    
+    .orangebox{
+    background-color: #FFE4B5 ;
+    padding: 10px; 
+    border: 1px solid #FF8C00;
+    }
+    
+    .redbox{
+        background-color: #FFE4E1;
+        border: 1px solid #FA8072;
+        display: block;
+        padding: 10px;
+    }
+    
+    .bluebox{
+        background-color: #F0F8FF;
+        border: 1px solid #87CEFA;
+        display: block;
+        padding: 10px;
+    }
+    
+    .yellowbox{
+        background-color: #FFFACD;
+        border: 1px solid #FFFF66;
+        display: block;
+        padding: 10px;
+    }
+    
+    .redtext{
+      color:red;
+    }
+    
+    .bluetext{
+      color:blue;
+    }
+    
+    .orangetext{
+      color:#FF791A;
+    }
+    
+    .greentext{
+      color:green;
+    }
+    
+    
+    
+    /* Style the button that is used to open and close the collapsible content */
+    .collapsible {
+      background-color: #efffef;
+      color: #444;
+      cursor: pointer;
+      padding: 10px;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    .active, .collapsible:hover {
+      background-color: #ccffcc;
+    }
+    
+    /* Style the collapsible content. Note: hidden by default */
+    .content {
+      padding: 0 10px;
+      display: none;
+      overflow: hidden;
+      background-color: #efffef;
+    }
+    </style>
+
+</html>
