@@ -114,9 +114,9 @@ Based on the above data, **which machine would you choose?**
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 First we find out the time taken to execute those instructions:
 <ul>
-<li> $x$: $\frac{3.6M}{40M / 2}$ = $0.18$ seconds
-<li> $y$: $\frac{1.9M} {100M / 10}$ = $0.19$ seconds
-<li> $z$: $\frac{4.2M}{60M / 3}$ = $0.21$ seconds
+<li> $x$: $\frac{3.6M}{40M / 2}$ = $0.18$ seconds </li> 
+<li> $y$: $\frac{1.9M} {100M / 10}$ = $0.19$ seconds </li> 
+<li> $z$: $\frac{4.2M}{60M / 3}$ = $0.21$ seconds </li> 
 </ul>
 From the result above, $x$ is the fastest machine. Hence we choose $x$.
 </p></div><br>
@@ -174,7 +174,8 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 	<pre><code>LDX( Ra, Rb, Rc ):
 		EA <- Reg[Ra] + Reg[Rb]
 		Reg[Rc] <- Mem[EA]
-		PC <- PC + 4</code></pre></p></div><br>
+		PC <- PC + 4</code></pre>
+    </p></div><br>
 
 4. Using a table like the one above specify the control signals for the LDX opcode.
 
