@@ -2,7 +2,7 @@
 layout: academic
 permalink: /problemsets/problemset1
 title: Problem Set 1
-description:  Week 1 practice questions containg topics from Basics of Information, and The Digital Abstraction.
+description:  Week 1 practice questions containg topics from Basics of Information and The Digital Abstraction.
 ---
 
 
@@ -32,7 +32,7 @@ Suppose that you are to guess the value of a 16-bit number: 0x$Z_1Z_2Z_3Z_4$ You
 Obviously $Z_x$ represents **4 bits** since these are in hexadecimal number system (indicated with the prefix  <code>0x</code>.) 
 <br><br>
 We are literally <i>told</i> that the first hex digit is $B = 1011$. Hence we are given <strong>4 bits of information</strong>.  There are still other 12 bits which values we do not know.</p></div>
-
+<br><br>
 ## Keyboard Presses (Basic)
 
 **(a).** Bob used an enhanced keyboard that was made up of 101 keys. He told Alice that he pressed one of the letter keys. **How much information did Bob give to Alice?** Hint: There are 26 letters in an alphabet.
@@ -41,7 +41,7 @@ We are literally <i>told</i> that the first hex digit is $B = 1011$. Hence we ar
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 Initially, there's $101$ choices. The information that Bob gave Alice narrows down the choices into 26. The information given is therefore $\log_2(101) - \log_2(26) = 1.958$. 
 </p></div>
-
+<br><br>
 
 **(b).** Bob used an enhanced keyboard that was made up of 101 keys. He told Alice that he pressed two of the letter keys consecutively. Bob did not mention whether the two keys are the same or not. **How much information did Bob give to Alice?** 
 *Hint: There are 26 letters in an alphabet.*
@@ -54,7 +54,7 @@ Pressing two letter keys consecutively (might be repeated) narrows down the choi
 <br><br>
 Hence the information given is $\log_2(101^2) - \log_2(26^2) = 3.916$.
 </p></div>
-
+<br><br>
 
 ##  ISTD Prize (Intermediate)
   
@@ -77,7 +77,7 @@ Now someone in your class won "the first to join ISTD" prize. Answer the followi
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 If we are given the student ID, we effectively know who the winner is. We instantly narrow down our pool of winner candidates from 100 students into just 1 student, hence the bits of information given is $\log_2(100)$.
 </p></div>
-
+<br><br>
 **(b.)** If you are told the student ID of the last 33 students who joined ISTD, how much **information** did you receive in bits?
 
 
@@ -85,19 +85,19 @@ If we are given the student ID, we effectively know who the winner is. We instan
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 If we know the last 33 students who joined ISTD, we know that <i>these students cannot be the winner.</i> Hence our pool of candidates are narrowed down into 67 students. We are then given $\log_2(100) - \log_2(67)$ bits of information.
 </p></div>
-
+<br><br>
 <strong>(c.)</strong> If you are told that the student who won the "first to join ISTD prize" is a male, how much **information** did you receive in bits?
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 Similarly, there are 51 males in ISTD. Hence, we are given $\log_2(100) - \log_2(51)$ bits of information.
 </p></div>
-
+<br><br>
 **(d.)** If you are told that the student who won the "first to join ISTD prize" is above 19 years old instead, how much **information** did you receive in bits?
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 Our candidates are narrowed down into $31 + 19 = 50$ students instead since there are 50 students who are above 19 years old. The amount of information given is $\log_2(100) - \log_2(50)$ bits.
 </p></div>
-
+<br><br>
 **(e.)** If you are told that the student who won the "first to join ISTD prize" hated a final exam and is below 19 years old, how much **information** did you receive in bits?
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
@@ -105,7 +105,7 @@ There are $51-31 = 20$ male students that are below 19 years old. There are also
 <br></br>
 Hence our candidates are further narrowed into 48 students after knowing that the person does not like exam. This gives us $\log_2(100 ) - \log_2(48)$ bits of information.
 </p></div>
-
+<br><br>
 
 ## Deck of Cards (Intermediate)
  
@@ -116,14 +116,14 @@ Originally, we have 8 options: $M=8$. The option is narrowed down into 3, hence 
 $$\begin{aligned} I = \log_2 \left(\frac{1}{N/M}\right) = \log_2 \left(\frac{1}{3/8}\right) \text{ bits of information}.
 \end{aligned}$$
 </p></div>
-  
+<br><br>  
 
 **(b.)** You're given a standard deck of 52 playing cards that you start to turn face up, card by card. So far as you know, they're in completely random order. How many **new bits of information** do you get when the **first** card is flipped over? The **fifth** card? The **last** card?
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 The first card has $\log_2 52$ bits of information. The fifth card has $\log_2 48$ bits of information. The last card has 0 bits of information.
 </p></div>
-  
+<br><br>  
 
 **(c.)** X is an *unknown* N-bit binary number $(N>3)$. You are told that the first three bits of X are 011. How many bits of *information* have you been given?
 
@@ -131,7 +131,7 @@ The first card has $\log_2 52$ bits of information. The fifth card has $\log_2 4
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 3 bits of information have been given.
 </p></div>
-  
+<br><br>  
 
 **(d.)**. X is an *unknown* 8-bit binary number. You are given another 8-bit binary number, Y, and told that the *Hamming* distance (number of different bits) between X and Y is one. How many **bits of information** about X have you been given when Y is presented to you?
 
@@ -139,7 +139,7 @@ The first card has $\log_2 52$ bits of information. The fifth card has $\log_2 4
 Originally, we have 8 unknown bits, that is $N=2^8$ choices. We can obtain X by flipping any one bit in Y. Since there are 8 bits, there are 8 possibilities for X by flipping each bit in Y. Therefore after given Y, we are down to $M=8$ choices, each having 1 bit that's different for X. We can say that we have been given,
 $$\begin{aligned} I = \log_2 \left(\frac{1}{M/N}\right) = \log_2 \left(\frac{1}{8/2^8}\right) = 5 \text{ bits of information}. \end{aligned}$$
 </p></div>
-
+<br><br>
   
 
 ## Measuring Information (Basic)
@@ -161,7 +161,7 @@ If you're told that the first letter of the message is "A", **give an expression
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 Recall that the information received is inversely proportional to the probability of that choice occurring, and we take $\log_2$ of the probability of that choice occurring to quantify the information in terms of bits. Hence the expression is,
 $$I = \log_2 \frac{1}{p(A)}$$
-</p></div> 
+</p></div> <br><br>
 
 
   
@@ -186,7 +186,7 @@ Almost all computers use a 2's complement representation for integers since the 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 $2^{32}$.
 </p></div>
-  
+<br><br>  
 
 **(b.)** Please use a *32-bit 2's complement representation* (signed bits) to answer the following questions. What are the **representations** for:
 
@@ -202,13 +202,13 @@ $2^{32}$.
 <li><code>0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</code></li>
 <li><code>1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</code></li>
 </ol></p></div>
-
+<br><br>
 **(c.)** What are the **decimal values** for the most positive and the most negative number that can be represented by this signed 32-bit machine?
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 The most positive value in decimal: 2147483647. The most negative value in decimal: -2147483648
 </p></div>
-
+<br><br>
   
 **(d.)** Since writing a string of 32 bits gets tedious, it's often convenient to use hexadecimal representation where a single digit in the range of 0-9 or A-F is used to represent groups of 4 bits. Give the **8-digit hexadecimal equivalent** of the following decimal and binary numbers:
 1. $37_{10}$
@@ -221,7 +221,7 @@ The most positive value in decimal: 2147483647. The most negative value in decim
 <li><code>0x 0000 0025</code></li>
 <li> We begin by converting $32768$ (positive) number to Hex: <code>0x 0000 8000</code>. Then we take the 1's complement. Note: transform the hex to binary first and flip the bits, then transform back to hex: <code>0x FFFF 7FFF</code>, and finally +1 : <code>0x FFFF 8000</code>.</li>
 <li> <code>0x DEAD BEEF</code></li></ol></p></div>
-
+<br><br>
 
   
  
@@ -237,7 +237,7 @@ The most positive value in decimal: 2147483647. The most negative value in decim
 <li> <code>001101 + 001010 = 010111</code></li>
 <li> 18 is <code>010010</code>. -18 is <code>101110</code>. Hence, <code>001111 + 101110 = 111101</code>.</li>
 <li><code>011011 + 111010 = 010101</code></li></ol></p></div>
-
+<br><br>
 
 
 ## Dice Throwing Game (Intermediate)
@@ -253,7 +253,7 @@ A group of five friends are playing a game that requires them to generate random
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 The maximum number you can get from summing 10 dice throws is 60, and the minimum is 10. Therefore you have 51 possible combinations, which require $\log_2(51)$ bits to represent. Rounding up, this results in <strong>6 bits</strong>.
 </p></div>
-
+<br><br>
   
 
 **(b.)** Someone in the group suggests that they can just use a die and throw it 10 times to get the random number required for the game. This way, they don't have to deal with carrying so many dice. The game began and then he proceeded with throwing the die. His first 3 throws are: 1, 3, and 4. **How many bits of information has been given so far?** Give your answer in 3 decimal places.
@@ -262,7 +262,7 @@ The maximum number you can get from summing 10 dice throws is 60, and the minimu
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 Each dice throw can result in any number between 1 to 6, which requires $\log_2(6)$ bits to encode. Three dice throws give you $3 * \log_2(6) = 7.755$ bits.
 </p></div>
-
+<br><br>
   
 
 **(c.)** After throwing the die 9 times in total, how many **new bits** of information did he get from making the last (the 10th) throw? Give your answer in 3 decimal places.
@@ -273,7 +273,7 @@ With the same idea as the previous part, the last dice throws solve the mystery 
 <br><br>
 <i>Note that this is significantly different from the bits of information that has been given to us so far. The nine dice throws have given us $9*log2(6)$ bits of information. The last nice throws give us another $\log_2(6)$ bits of information. Please be careful with the wording.</i>
 </p></div>
-
+<br><br>
 
   
 
@@ -283,7 +283,7 @@ With the same idea as the previous part, the last dice throws solve the mystery 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 <code>0x035</code>
 </p></div>
-
+<br><br>
   
   
   
@@ -307,7 +307,7 @@ Consider an 8-bit **signed** number systems. **Do the following base conversion*
 <li><code>0x9D</code></li>
 <li> <code>0b10111111</code></li>
 <li> <code>306</code></li></ol></p></div>
-  
+<br><br>  
   
 
 ## Representing -32 on different number systems (Basic)  
@@ -330,7 +330,7 @@ Which of the following signed numbers is **the representation** of number -32 fo
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 (2), (4), (6)
 </p></div>
-
+<br><br>
 
 ## Proof of 2's Complement (Challenging)
 ---
@@ -352,7 +352,7 @@ $$\begin{aligned}
 \end{aligned}$$
 which is exactly the two complement's steps. 
 </p></div>
-
+<br><br>
 
 # The Digital Abstraction
 You can refer to the notes <a href="https://natalieagus.github.io/50002/the_digital_abstraction.html" target="_blank">here</a> if you need to revise. 
@@ -397,7 +397,7 @@ When answering the questions below, assume that all voltages are constrained to 
 <li> 0.5V. That is the lowest amount of $V_{OUT}$ that the device can produce.</li><br>
 <li> We can choose $V_{OL} = 0.5V$ from the graph, since the device is capable of producing such low voltage. With NM of 0.5V, that means that $V_{IL} = V_{OL} + 0.5V = 1V$. From the graph, we can also choose $V_{OH} = 4V$, as the part with the highest gain in the middle of the graph can most probably be the forbidden zone. Therefore, $V_{IH} = V_{OH} - 0.5V.= 3.5V$.</li><br>
 <li>This device is an inverter, since a high input produces a low output and vice versa.</li></ol></p></div>
-
+<br><br>
   
   
 
@@ -414,7 +414,7 @@ When answering the questions below, assume that all voltages are constrained to 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 No. This device gain is $\leq1$, hence it cannot be used as a combinational device.
 </p></div>
-
+<br><br>
 **(b).** You are designing a new logic family and trying to decide on values of the four parameters: $V_{OL}$, $V_{IL}$, $V_{IH}$, and $V_{OH}$ that lead to non-zero noise margins for various possible inverter designs. Four proposed inverter designs exhibit the VTC shown in the diagrams below. **For each design, either specify four suitable values** of $V_{OL}$, $V_{IL}$, $V_{IH}$, and $V_{OH}$ or **explain why no values can obey the static discipline.** 
 
 *Hint: you may want to start by choosing NM to be 0.5V for ease of computation.*
@@ -430,7 +430,7 @@ For (A), choose NM = 0.5V, then $V_{OL} = 1V$, $V_{IL} = 1.5V$, $V_{IH} = 5V$, a
 <br><br>
 For (D), choose NM = 0.5V, then $V_{OL} = 0.5V$, $V_{IL} = 1V$, $V_{IH} = 5$, and $V_{OH}= 5.5V$.
 </p></div>
-
+<br><br>
 ## Static Discipline (Basic)
 
 
@@ -441,7 +441,7 @@ We have a valid <strong>low</strong> output, but that doesnt mean that we have a
 <br><br>
 Hence, the only thing we can infer is that$V_{IN} < V_{IH}$ (means input voltage is either a valid low or an invalid value).
 </p></div>
-
+<br><br>
 **(b).** Now consider an inverter. Suppose we set its input to some voltage $V_{IN}$, wait for the device to reach a steady state, then measure the voltage on its output $V_{OUT}$, and find $V_{OUT} > V_{OH}$. **What can we deduce about the value of $V_{IN}$?**
 
 
@@ -451,7 +451,7 @@ We have a valid <strong>high</strong> output, but that doesnt mean that we have 
 <br><br>
 However we do know for sure that the <i>input cannot be higher than</i> $V_{IH}$ because static discipline requires the output to be lower than $V_{OL}$ if this is the case for an inverter. Hence, the only thing we can infer is that $V_{IN} < V_{IH}$ (means input voltage is either a valid low or an invalid value).
 </p></div>
-
+<br><br>
  
 
 ## VTC Analysis (Intermediate)
@@ -479,3 +479,4 @@ Which of the following specification(s) **does not obey** the static discipline?
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 <strong>None of them</strong> obey the static discipline. You may easily check whether the device is able to provide the prescribed $V_{OH}$ given a corresponding $V_{IH}$ in the options, and whether it is able to provide as well the given $V_{OL}$ given a coresponding $V_{IL}$ in the options from tracing the graph.
 </p></div>
+<br><br>
