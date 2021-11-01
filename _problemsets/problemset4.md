@@ -1,9 +1,10 @@
 ﻿---
 layout: academic
-permalink: /problemsets/pset4
+permalink: /problemsets/problemset4
 title: Problem Set 4
-description: Week 4 practice Questions
+description: Week 4 practice questions containing topics from Turing Machine and ISA
 ---
+
 
 * TOC
 {:toc}
