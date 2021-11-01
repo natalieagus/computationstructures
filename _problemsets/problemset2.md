@@ -2,7 +2,7 @@
 layout: academic
 permalink: /problemsets/problemset2
 title: Problem Set 2
-description: Week 2 practice Questions
+description: Week 1 practice questions containg topics from CMOS Technology and Logic Synthesis.
 ---
 
 

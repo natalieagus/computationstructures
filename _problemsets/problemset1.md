@@ -2,7 +2,7 @@
 layout: academic
 permalink: /problemsets/problemset1
 title: Problem Set 1
-description:  Week 1 practice Questions containg topics from Basics of Information, and The Digital Abstraction.
+description:  Week 1 practice questions containg topics from Basics of Information, and The Digital Abstraction.
 ---
 
 
