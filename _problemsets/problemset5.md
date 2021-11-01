@@ -444,7 +444,7 @@ x : LONG(3)
 Program 2, 4, and 5 can successfully <strong>detect</strong> this faulty. All of them forces the control unit to produce non-zero <code>PCSEL</code>. For example, <strong>Program 4</strong> results in <code>illop</code> when the Beta attempts to execute <code>LONG(12)</code> because it isn't an instruction. Therefore <code>PCSEL=3</code> if the control unit works properly and that the content of <code>PC</code> will be <code>ILLOP</code> (wherever the address of illegal operation handler is) instead of address <code>0xC</code>. </p></div><br>
 
 
-### Quality Control (Intermediate)
+## Quality Control (Intermediate)
 One Beta manufacturer is having quality-control problems with their design. In particular, they've had reliability issues with various device connections that are circled in the diagram below.
 
 <img src="https://dl.dropboxusercontent.com/s/i71imaa2toxsnk7/betafault.png?raw=1" width="70%" height="70%">
