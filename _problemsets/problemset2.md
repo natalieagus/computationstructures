@@ -2,7 +2,7 @@
 layout: academic
 permalink: /problemsets/problemset2
 title: Problem Set 2
-description: Week 2 practice questions containg topics from CMOS Technology and Logic Synthesis.
+description: Week 2 practice questions containing topics from CMOS Technology and Logic Synthesis.
 ---
 
 
@@ -37,7 +37,7 @@ Compute the **overall** propagation delay and contamination delay for the circui
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 Overal  $t_{pd}$ = 6ns, $t_{pd​}$ = 6ns  (counting paths from the AND gate, OR gate, and XOR gate). 
 <br><br>
-Overall  $t_{cd}$ = 1ns, $t_{cd}$ ​= 1ns  (counting the shortest path from XOR gate). </p></div><br><br>
+Overall  $t_{cd}$ = 1ns, $t_{cd}$ ​= 1ns  (counting the shortest path from XOR gate). </p></div><br>
 
 
 ## Tracing CMOS Circuit (Basic)
@@ -54,7 +54,7 @@ A & B & C & OUT \\ \hline 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 1 & 0 & 1 \\ 0 &
 \hline
 \end{matrix}
 $$
-</p></div><br><br>
+</p></div><br>
 
 ## Universal Gates (Basic)
 
@@ -71,7 +71,7 @@ If you directly convert with just NAND gates then you'll get:
 <img src="https://dl.dropboxusercontent.com/s/ekfful2ybo9n5je/Q8.png?raw=1" width="50%" height = "50%"> 
 <br>
 You can minimise them first by minimising the boolean expression:  $$AC + \bar{A}C + B\bar{C} = C+B\bar{C} = C + B = \overline{\bar{C}\bar{B}}$$ Then we can easily draw this: <br>
- <img src="https://dl.dropboxusercontent.com/s/43ecrhtx84m2kpa/Q8new.png?raw=1" width="50%" height="50%"></p></div><br><br>
+ <img src="https://dl.dropboxusercontent.com/s/43ecrhtx84m2kpa/Q8new.png?raw=1" width="50%" height="50%"></p></div><br>
 
 
 
@@ -102,7 +102,7 @@ Answer the following questions:
 <li> For the 8-bit ripple-carry adder, we do not have an input  $C_0$ as it is grounded However the $t_{cd}$​  is <i>still</i> 0.3 as the specification of contamination delay is <strong>not</strong> usage specific. Its  $t_{pd}$  is approximately 8 times bigger than a single FA $\rightarrow$  $t_{pd}$= 14.4. To be exact, if  $A_i$ XOR $B_i$ is <i>parallel</i>, meaning that $A_i$, $B_i$ are given and valid at the same time for all adder units $i=0,1,...7$,  then the $t_{pd}$ is $1.8+7\times1.3=10.9$. </li>
 <br>
 However if the question is asking for the  $t_{cd}$  of  <strong>this</strong>  particular device with no  $C_0$ input terminal at all then the answer is  $0.6$ns  since there's no  $C_0$. 
-</p></div><br><br>
+</p></div><br>
 
 ## Combinational Construction Rules (Challenging)
 
@@ -165,7 +165,7 @@ x & y & z \\
 <li>One has to find the <strong>longest</strong> path from (any) input to (any) output to find the <strong>total</strong> propagation delay of the combinational circuit.</li>
 <br>
 <li> No, the signal can <strong>propagate</strong> back into the circuit's input so using the <i>longest</i> path to calculate  $t_{pd}$  is not applicable anymore. </li></ol>
-</p></div><br><br>
+</p></div><br>
 
 # Logic Synthesis
 
@@ -187,7 +187,7 @@ $$\begin{matrix}
 A & B & C & D & F \\ \hline 0 & 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 1 & 1 \\ 0 & 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 1 \\ 0 & 1 & 0 & 0 & 1 \\ 0 & 1 & 0 & 1 & 1 \\ 0 & 1 & 1 & 0 & 1 \\ 0 & 1 & 1 & 1 & 1 \\ 1 & 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 1 & 1 \\ 1 & 0 & 1 & 0 & 1 \\ 1 & 0 & 1 & 1 & 0 \\ 1 & 1 & 0 & 0 & 1 \\ 1 & 1 & 0 & 1 & 0 \\ 1 & 1 & 1 & 0 & 1 \\ 1 & 1 & 1 & 1 & 0 \\ \hline \end{matrix}$$
 <br><br>
 2. $F = \overline{A(B+C)D}$
-</p></div><br><br>
+</p></div><br>
 
 
 
@@ -231,7 +231,7 @@ $$\begin{aligned} \overline{(A+B)\overline{B}} &= \overline{A \overline{B} + B \
 \end{aligned}$$
 </li><br>
 <li> <strong>The contamination delay</strong> is the path  (from any input to any output)  that results in the shortest time: NR2 + NR2 + ND2 = $5 + 5 + 5 = 15$. <strong>The propagation delay</strong> is the path (from any input to any output) that results in the longest time: AN2 + NR2 + ND2 = $50 + 30 + 30 = 110$.</li></ol>
-</p></div><br><br>
+</p></div><br>
 
   
   
@@ -272,7 +272,7 @@ Choose all the correct Boolean expression of this circuit:
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 <strong>(a), (b), and (c)</strong> are all <strong>equivalent</strong> and represents the truth table. <br><br>
-<i>Hint: express the table in terms of sum of products first and then simplify the expression.</i></p></div><br><br>
+<i>Hint: express the table in terms of sum of products first and then simplify the expression.</i></p></div><br>
 
   
 
@@ -287,7 +287,7 @@ What is the the **sum-of-products** for the following ROM (Read Only Memory)?
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content"><p>
 $Y = \bar{A}\bar{B}\bar{C} + \bar{A}BC + A \bar{B} C+ AB\bar{C}$. 
 <br><br>This expression can be computed easily after you create a truth table first out of the ROM.
-</p></div><br><br>
+</p></div><br>
 
 
   
@@ -309,7 +309,7 @@ ROM [3] represents half-adder functionality.
 Y's output shows a XOR(A,B) while Z's output shows an AND(A,B). 
 <br><br>
 Hence this make Y to be the SUM output and Z to be the CARRY output.
-</p></div><br><br>
+</p></div><br>
   
 
 
@@ -340,7 +340,7 @@ https://dl.dropboxusercontent.com/s/6romn7t1g594ddz/pfetup.png?raw=1"  width="50
 </li><br>
 <li>From the pulldown diagram, it seems like the output is 0 if D is 1, or A and C is 1, or B and C is 1. Therefore, the output for the gate is the <strong>inverse</strong> of the expression of the pulldown circuitry, which is the output of the pullup circuitry above: $\overline{(A+B) C + D} = (\overline{A} \text{ }\overline{B} + \overline{C}) \overline{D}$.
 </li><br>
-<li> The voltage of the output terminal at "0" steady state is 0 (GND). The voltage of the output terminal at "1" steady state is VDD's voltage.</li></ol></p></div><br><br>
+<li> The voltage of the output terminal at "0" steady state is 0 (GND). The voltage of the output terminal at "1" steady state is VDD's voltage.</li></ol></p></div><br>
 
 
   
@@ -370,7 +370,7 @@ Y &= AB \bar{C} \bar{D} + AB \bar{C}D + \bar{A} \bar{B}CD + \bar{A}BCD + ABCD \\
 \end{aligned}$$
 <br>
 <i>Note: convince yourself that the simplified form allows you to make a cheaper and smaller combinational logic device (because we use lesser number of gates).</i>
-</p></div><br><br>
+</p></div><br>
 
   
 
@@ -398,7 +398,7 @@ She has burned out 97 of her chips, and needs your help before destroying the re
 <li> When $A=0, B=1$ or $A=1, B=0$, then there's an <strong>open connection</strong> between VDD and GND. This caused the gate to short circuit, and hence its burning out.</li><br>
 <li> <strong>Yes</strong>, when $A=1, B=1$ then $C=0$, or $A=0, B=0$, then $C=1$. This is when the pullup and pulldown circuit aren't both ON at the same time.</li><br>
 <li> <strong>No</strong> When $A=1, B=0$, the circuit will burn out again, since the pullup and pulldown will be active, thus burning out the circuit. Also, the output is not defined when $A=0, B=1$, since neither the pullup or pulldown are active.</li><br>
-<li><strong>Yes</strong>. It exhibits the behavior of an <strong>inverter</strong>, i.e: A and B are connected to the same $V_{IN}$.</li></p></div><br><br>
+<li><strong>Yes</strong>. It exhibits the behavior of an <strong>inverter</strong>, i.e: A and B are connected to the same $V_{IN}$.</li></p></div><br>
 
 
 
@@ -436,7 +436,7 @@ Then apply DeMorgan law:<br>
 <li> If we use A and B as the <strong>select</strong> inputs for the MUX, then the four data inputs of the MUX should be tied to one of "0" (ground), "1" (VDD), "C" or "NOT C". The following is one of the correct schematics that implement this function (there are other acceptable answers as well). Note that by changing the connections on the data inputs to the mux, we could implement any function of A, B and C.
 <br><img src="https://dl.dropboxusercontent.com/s/0yykalujmctihu4/mux_stuff.png?raw=1"  width="50%" height = "50%">
 </li><br>
-<li>We can just write *sum of produc*t for rows that results the '0's in the table above, and then reduce the expression into: $\overline{F} = B \overline{C} + \overline{A} \text{ } \overline{B} C$</li></p></div><br><br>
+<li>We can just write *sum of produc*t for rows that results the '0's in the table above, and then reduce the expression into: $\overline{F} = B \overline{C} + \overline{A} \text{ } \overline{B} C$</li></p></div><br>
 
 
 
@@ -461,7 +461,7 @@ The minimised boolean expression is $AD + \bar{B}\bar{C} + \bar{B} \bar{D}$. The
 <li> on the lower right corner (row 3 and 4, with column 3 and 4), </li>
 <li> on the sides (row 1 and 2, with column 1 and 4), and </li>
 <li>on the four corners (row 1 col 1, and row 1 col 4, and row 4 col 1, and row 4 col 4).</li>
-</ul></p></div><br><br>
+</ul></p></div><br>
 
 ## The FPGA (Challenging)
 
@@ -547,7 +547,7 @@ The necessary control signals are:
 <li> The functions of 6 variables which we can implement must be of the form: Y = C(C1, C2, F(F1,F2,F3,F4)) or the form of Y = C(C1,F(F1, F2, F3, F4), G(G1, G2, G3, G4)). <i>This second function will have some overlap between C1, F1-4, and G1-4; some variables will be connected to multiple inputs.</i>
 <br><br>
 Essentially, the functions we are able to implement are only those for which <strong>we can factor a set of 4 variables out of the equation.</strong> For example, the following function cannot be implemented by the CLB: Y = A1A2A3A4A5 + A1A2A3A4A6 + A1A2A3A5A6 + A1A2A4A5A6 + A1A3A4A5A6 +A2A3A4A5A6. This function cannot be broken down into either of the forms mentioned above.
-</li></ol></p></div><br><br>
+</li></ol></p></div><br>
 
 
 

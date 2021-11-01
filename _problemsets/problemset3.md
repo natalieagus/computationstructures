@@ -77,7 +77,7 @@ Now we feed it the following input signal and CLK signal. **Which of the followi
 <br>
 Signal 5, although it has "invalid" values for two clock cycles isn't the answer because since it is an odd-numbered DFFs, it will  <strong>change output</strong> at the </strong>falling</strong> edge, as opposed to rising edge in a normal DFF with two latches.
 </p>
-</div>
+</div><br>
 
 
 ## Another Timing Computations (Basic)
@@ -312,7 +312,7 @@ What is the *purpose* of these FSMs?
 <br><br>
 The purpose of both machines is to detect the presence of an edge and output a <code>1</code> <strong>once</strong> for the cycle where the edge happens, and <code>0</code> otherwise.
 </p>
-</div>
+</div><br>
 
 Your friend plot the timing diagram of the machine in Diagram A and obtain the following output:
 
