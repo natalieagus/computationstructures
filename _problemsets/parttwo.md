@@ -1,6 +1,6 @@
 ---
 layout: academic
-permalink: /tutorials/parttwo
+permalink: /problemsets/parttwo
 title: Tutorial Part 2
 description: This is part two testing the two column with sticky sidebar
 ---

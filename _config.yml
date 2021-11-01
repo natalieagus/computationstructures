@@ -25,7 +25,11 @@ footer:
 
 
 collections:
-  tutorials: 
+  problemsets: 
+    output: true
+  lecturenotes: 
+    output: true
+  fpga: 
     output: true
 
 # Build settings

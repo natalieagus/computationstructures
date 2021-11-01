@@ -1,6 +1,6 @@
 ---
 layout: mathpost
-permalink: /tutorials/partone
+permalink: /fpga/partone
 title: Part One of Tutorial
 description: Another tool we need to master before being able to minimise or reduce boolean expression is boolean algebra properties. 
 ---
