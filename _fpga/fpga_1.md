@@ -1,4 +1,4 @@
-﻿---
+---
 layout: academic
 permalink: /fpga/fpga_1
 title: FPGA Part 1
@@ -9,9 +9,12 @@ description: Getting Started with FPGA Part 1 -- Combinational Logic
 * TOC
 {:toc}
 
-50.002 Computation Structures
+**50.002 Computation Structures**
+<br>
 Information Systems Technology and Design
+<br>
 Singapore University of Technology and Design
+<br>
 **Natalie Agus (Fall 2020)**
 
 # Getting Started with FPGA: Part 1

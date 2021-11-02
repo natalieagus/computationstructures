@@ -9,8 +9,10 @@ description: Week 2 practice questions containing topics from CMOS Technology an
 * TOC
 {:toc}
 
-50.002 Computation Structures
+**50.002 Computation Structures**
+<br>
 Information Systems Technology and Design
+<br>
 Singapore University of Technology and Design
 
 # Problem Set 2
