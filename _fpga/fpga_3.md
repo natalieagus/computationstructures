@@ -447,11 +447,10 @@ set_property BITSTREAM.General.UnconstrainedPins {Allow} [current_design]</code>
 
 
 
-<mark> You can then define **output** pins in `custom.acf` in the following format,
-<pre><code>cpp
+You can then define **output** pins in `custom.acf` in the following format,
+```cpp
 pin <pin name> <Br terminal pin name>
-</code></pre>
-</mark>
+```
 
 <div classname="redbox"> Warning: Ensure that your custom pins do not use any other pins that's already been used on your IO Shield, or other custom pins. Each declaration must be <strong> unique </strong>.</div>
 
@@ -487,7 +486,7 @@ pin <pin name> <Br terminal pin name> pullup
 ```  
 
 
-</mark> Input pins with default <code>pulldown</code> resistor will produce a <code>0</code> and input pins with default <code>pullup</code> will produce a <code>1</code>  if there's no external value fed into it. </mark>
+<mark> Input pins with default <code>pulldown</code> resistor will produce a <code>0</code> and input pins with default <code>pullup</code> will produce a <code>1</code>  if there's no external value fed into it. </mark>
 
 > The `pulldown` and `pullup` internal resistors are made to ensure that there won't be "*floating*" or "*invalid*" input values that's fed to your system when there's nothing that's fed to it (i.e: switched off). Read <a href="https://www.electronics-tutorials.ws/logic/pull-up-resistor.html" target="_blank">this</a> if you'd like to know more about pull-up and pull-down resistors. 
 
@@ -502,7 +501,7 @@ You are recommended to read further on (if they're applicable to your project of
 2. How LED Strips work (e.g: WS2812B, or SK6812 LEDs). You can refer to online tutorials like  <a href="https://vivonomicon.com/2018/12/24/learning-how-to-fpga-with-neopixel-leds/" target="_blank">this</a> one. We have some sample LED writers that's Au and WS2812B compatible <a href="https://github.com/natalieagus/SampleAlchitryProjects/tree/master/LEDStripTest" target="_blank">here</a>  to get you started. 
 3. How you can utilize another powerful **storage device:** the default RAM component. You can find the <a href="https://alchitry.com/blogs/tutorials/hello-your_name_here" target="_blank"> tutorial</a> written by the original author here (there's single-port and dual-port RAM). 
 
-	<mark>**RAM component** is **especially useful** if you need to store a **large** amount of data </mark>, e.g data to be rendered out to large (32x32 or 64x32, etc) LED matrices. It is convenient to use the `dff` for small data storages, but you will run out of logic units real fast if you were to create thousands of dffs (not to mention the bizzare amount of time needed to compile the code). 
+	<mark><strong>RAM component</strong> is <strong>especially useful</strong> if you need to store a **large** amount of data </mark>, e.g data to be rendered out to large (32x32 or 64x32, etc) LED matrices. It is convenient to use the `dff` for small data storages, but you will run out of logic units real fast if you were to create thousands of dffs (not to mention the bizzare amount of time needed to compile the code). 
 
 4. How RGB LED Matrix works. Some <a href="https://learn.adafruit.com/fpga-rgb-matrix/overview" target="_blank">online tutorials</a> can be a good starting point. You need to have some pretty good understanding about sending clocked serial data though. We have some sample RGB Matrix writer  <a href="https://github.com/natalieagus/SampleAlchitryProjects/tree/master/MatrixLEDTest" target="_blank">here</a> (64x32 compatible, simply adjust the parameter if you have other dimensions, double check the clock and addressing, this follows strictly [adaFruit matrix LED](https://learn.adafruit.com/32x16-32x32-rgb-led-matrix/new-wiring)).  You can use it with some simple RAM modules (2 units of 64x16 cells, each cell containing 3 bits, each unit to drive one-half of the matrix). You can instantiate a simple_ram module like this:
 	```cpp
@@ -518,7 +517,7 @@ You are recommended to read further on (if they're applicable to your project of
 Once you're comfortable with some basic FPGA coding, you can begin designing the datapath for your game and implement the modules required. You may refer to <a href="https://natalieagus.github.io/50002/1D_programmable_machine.html" target="_blank">this tutorial</a> for clues on how to begin if needed. 
 
 ## Final note 
-To save you some pain and time, it always good to <mark>**test** your **hardware** AND **connections** first ***BEFORE*** testing them together with your implementation </mark>:
+To save you some pain and time, it always good to <mark><strong>TEST</strong> your <strong>hardware</strong> AND <strong>connections</strong> first <strong>BEFORE</strong> testing them together with your implementation </mark>:
 1. Test whether every single segment of your 7-segment device is **working**. Use really simple stuffs like jumper wires, voltage source and ground. No code needed. 
 
 3. **If you use LED strips, test whether each LED** **works**. Write some simpler tester code to light up all the LEDs, light them up to with alternating colors, light them up with different colors, etc. 
