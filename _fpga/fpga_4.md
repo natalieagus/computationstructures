@@ -1,7 +1,7 @@
 ---
 layout: academic
 permalink: /fpga/fpga_4
-title: Field Gate Programmable Array Tutorial Part 4
+title: Field-Programmable Gate Array Tutorial Part 4
 description: Getting Good with FPGA -- Building Beta CPU
 ---
 
