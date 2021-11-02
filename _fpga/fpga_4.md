@@ -241,6 +241,8 @@ We can easily create a module for this unit using `dff`. Create a script called 
 ```
 Then we instantiate 32 32-bit `dff`s to represent `R1` to `R31`. The `REGFILE` always performs a *read* at all times, so you can always ignore its output later on if you don't need it. 
 > Of course we can just instantiate 31 `dff` instead of 32. Its your choice. Regardless, always make sure that writing to `R31` doesn't have any effect, and reading from `R31` always result in `32b0`. 
+
+
 ```cpp
 {
   dff registers[32][32](.clk(clk)); 
