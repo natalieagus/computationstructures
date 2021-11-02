@@ -422,9 +422,9 @@ Finally, we will try to show the result `sc.out_result` on an external LED inste
 
 Create a new **constraint** file (at the osconstraint folder) and name it `custom` (or any other name that you want, as long as the extension is `.acf`) .
 
-<mark> **Important:** You are recommended to just have **one** constraint file. If you need the default I/O terminals on Alchitry Io, then copy over the contents of the other two acf files, `io.acf` and `alchitry.acf` and paste it to `custom.acf`, and delete the former two so you just simply have `custom.acf`.  Delete all other `.acf` afterwards. </mark>
+<mark> Important: You are recommended to just have one constraint file. If you need the default I/O terminals on Alchitry Io, then copy over the contents of the other two acf files, <code>io.acf</code> and <code>alchitry.acf</code> and paste it to <code>custom.acf</code>, and delete the former two so you just simply have <code>custom.acf</code>.  Delete ALL other <code>.acf</code> afterwards. </mark>
 
-<div class="redborder"> At this point if you build, chances are you will be met some eroror as such:
+<div class="redborder"> At this point if you build, chances are you will be met some error as such:
 <pre><code>ERROR: [DRC NSTD-1] 
 Unspecified I/O Standard: N out of 57 logical ports use I/O standard (IOSTANDARD) value 'DEFAULT', instead of a user assigned specific value.
 This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, ...
@@ -438,18 +438,19 @@ This can be fixed if we specify <strong>all</strong> pins on Alchitry Br (recomm
 <li> Create a new file under "Constraints" (right click >> New File) with name 
 <code>filename.xdc</code> (name it anything you want as long as the extension is <code>.xdc</code>). It should fall under "User Constraint" option. </li>
 <li>Paste the content of original <code>au.xdc</code> to it, and i</li>
-<li>Add three more lines to ignore the warning and allow unconstrained bistream: <pre><code>set_property SEVERITY {Warning} [get_drc_checks NSTD-1]
+<li>Add three more lines to ignore the warning and allow unconstrained bistream: 
+<pre><code>set_property SEVERITY {Warning} [get_drc_checks NSTD-1]
 set_property SEVERITY {Warning} [get_drc_checks UCIO-1]
-set_property BITSTREAM.General.UnconstrainedPins {Allow} [current_design]</pre></code></li>
+set_property BITSTREAM.General.UnconstrainedPins {Allow} [current_design]</code></pre></li>
 <li> Delete the original <code>au.xdc</code>.</ul>
 </div>
 
 
 
 <mark> You can then define **output** pins in `custom.acf` in the following format,
-```cpp
+<pre><code>cpp
 pin <pin name> <Br terminal pin name>
-```
+</code></pre>
 </mark>
 
 <div classname="redbox"> Warning: Ensure that your custom pins do not use any other pins that's already been used on your IO Shield, or other custom pins. Each declaration must be <strong> unique </strong>.</div>
@@ -476,7 +477,7 @@ Then connect the 3 LEDs on a breadboard with some resistors. If you don't know h
 All three LEDs should light up if you key in the right sequence: 
 <img src="https://dl.dropboxusercontent.com/s/d4il3wbpcvtshx9/outputvalues.png?raw=1"  alt=“F1”  width="70%" height = "70%">
 
-<mark> Likewise, you can define an **input** pin in the following format,
+Likewise, you can define an **input** pin in the following format,
 ```cpp
 pin <pin name> <Br terminal pin name> pulldown
 ``` 
@@ -484,9 +485,9 @@ or:
 ```cpp
 pin <pin name> <Br terminal pin name> pullup
 ```  
-</mark>
 
-</mark> Input pins with default `pulldown` resistor will produce a `0` and input pins with default `pullup` will produce a `1`  if there's no external value fed into it. </mark>
+
+</mark> Input pins with default <code>pulldown</code> resistor will produce a <code>0</code> and input pins with default <code>pullup</code> will produce a <code>1</code>  if there's no external value fed into it. </mark>
 
 > The `pulldown` and `pullup` internal resistors are made to ensure that there won't be "*floating*" or "*invalid*" input values that's fed to your system when there's nothing that's fed to it (i.e: switched off). Read <a href="https://www.electronics-tutorials.ws/logic/pull-up-resistor.html" target="_blank">this</a> if you'd like to know more about pull-up and pull-down resistors. 
 
