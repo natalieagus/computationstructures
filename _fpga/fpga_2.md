@@ -2,7 +2,7 @@
 layout: academic
 permalink: /fpga/fpga_2
 title: FPGA Part 2
-description: Getting Started with FPGA Part 1 -- Sequential Logic and FSM
+description: Getting Started with FPGA Part 2 -- Sequential Logic and FSM
 ---
 
 
@@ -179,6 +179,7 @@ Thankfully Lucid comes with a built-in `fsm` declaration, so we don't have to de
 > *Note: `Y_VALUES[0]` is `8h02` **and not** `8h0`. Indexes *
 > 
 > and use a 2-bit `dff` whose output value is used as an  input `address` to the ROM. We increment the content of the `dff` by 1 at each clock cycle, and reset it back to `00` once it reaches `10` (because we don't need `11`):
+
 ```cpp
 dff counter[2](.clk(clk), .rst(rst));
 eight_bit_adder adder; 
@@ -194,6 +195,7 @@ else{
 }
 ...// set other connections for adder
 ```
+
 >Sounds like so much hassle -- technically we can see the `dff` as storing a *state* too, so let's be a little extra and use `fsm` module instead -- because... why not?*
 
 ### Declaring FSM
