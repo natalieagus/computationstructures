@@ -1,7 +1,7 @@
 ---
 layout: academic
 permalink: /fpga/fpga_3
-title: FPGA Part 3
+title: FPGA Tutorial Part 3
 description: Getting Started with FPGA Part 3 -- Reset and I/O
 ---
 
