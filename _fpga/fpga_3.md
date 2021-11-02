@@ -442,7 +442,8 @@ This can be fixed if we specify <strong>all</strong> pins on Alchitry Br (recomm
 <pre><code>set_property SEVERITY {Warning} [get_drc_checks NSTD-1]
 set_property SEVERITY {Warning} [get_drc_checks UCIO-1]
 set_property BITSTREAM.General.UnconstrainedPins {Allow} [current_design]</code></pre></li>
-<li> Delete the original <code>au.xdc</code>.</ul>
+<li> Delete the original <code>au.xdc</code>.</li>
+</ul>
 </div>
 
 
