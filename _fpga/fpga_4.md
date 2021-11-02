@@ -130,8 +130,11 @@ module memoryunit #(
     output instruction[32]
   )
 ```
+
 We will create two `ram` units as *instruction* memory and **data** memory. In practice they're supposed to be the **same** memory unit but we don't have a `ram` module with **two read ports** by default, we have to make do with the modules that are available:
+
 > Actually since we will never perform data read and data write at the same time, we technically can use `simple_ram` instead of `simple_dual_ram` for `data_memory`, but we just want to illustrate the usage for both here. 
+
 ```cpp
 {
   simple_ram instruction_memory(#SIZE(32), #DEPTH(16), .clk(clk)); // can fit 16 * 32 bits 
@@ -152,6 +155,7 @@ We will create two `ram` units as *instruction* memory and **data** memory. In p
   }
 }
 ```
+
 Then in the `always` block we simply make the correct connections. One thing to pay attention to is the fact that $\beta$ assumes byte-addressable memory unit but the `ram` modules uses **word addressing.**
 
 Therefore we need to **truncate** the two LSB off the addresses supplied by $\beta$: `ia` (instruction address), `radr` and `wadr` (read and write address to the data memory, both are supplied by the same source the output of the `ALU`).
@@ -279,14 +283,14 @@ Remember the addressing for a ROM in Lucid is as follows:
 ```cpp
 // usage: CU_ROM[opcode]
 const CU_ROM = { 
-				b011100000000000100, // OPCODE 111111 (illop)
-				b000000110001101100, // OPCODE 011110 (SRAC)
-				b000000110000101100, // OPCODE 011101 (SHRC)
-				....
-				b011100000000000100,
-				b011100000000000100,// OPCODE 000001 (illop)
-				b011100000000000100	// OPCODE 000000 (illop)
-				}; 
+        b011100000000000100, // OPCODE 111111 (illop)
+        b000000110001101100, // OPCODE 011110 (SRAC)
+        b000000110000101100, // OPCODE 011101 (SHRC)
+        ....
+        b011100000000000100,
+        b011100000000000100,// OPCODE 000001 (illop)
+        b011100000000000100	// OPCODE 000000 (illop)
+        }; 
 ```
 We then need to handle the `pcsel` value for `bne/beq` case separately:
 ```cpp
@@ -450,6 +454,8 @@ BNE(R3, 0, R1)
 You can use `bsim` to obtain the 32-bit machine language form for each instruction, and then store it as some constant. We also need to ensure that the instructions are **loaded** to the memory_unit first upon startup before we can run the `beta`. We can use some `dff`: `writer_counter` to keep track which instruction has been loaded to the memory unit. 
 
 > The rightmost instruction will be loaded to the memory_unit address `0x0`, and the leftmost instruction will be loaded at address `0x10` (byte addressing).
+
+
 ```cpp
 const SAMPLE_CODE = {32h7823FFFB, 32h607F0020, 32h643F0020, 32h90410800, 32hC03F0007};
 
