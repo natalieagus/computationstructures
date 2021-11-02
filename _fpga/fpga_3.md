@@ -520,7 +520,6 @@ Once you're comfortable with some basic FPGA coding, you can begin designing the
 ## Final note 
 To save you some pain and time, it always good to <span style="background-color:yellow"><strong>TEST</strong> your <strong>hardware</strong> AND <strong>connections</strong> first <strong>BEFORE</strong> testing them together with your implementation </span>:
 1. Test whether every single segment of your 7-segment device is **working**. Use really simple stuffs like jumper wires, voltage source and ground. No code needed. 
-
 3. **If you use LED strips, test whether each LED** **works**. Write some simpler tester code to light up all the LEDs, light them up to with alternating colors, light them up with different colors, etc. 
 4. Do the **same** as point (2) above for **LED matrices**, or even basic **single LED lights**, whichever LEDs you use for your project. 
 5. Check if the **buttons** or any input device you bought is working by capturing its presses and showing it out on an LED on Alchitry Io. Also, ensure that the button press is **crisp** and not wonky. 

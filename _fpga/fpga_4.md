@@ -26,7 +26,7 @@ You are recommended to read this document only after you've understood **complet
 * You're **comfortable** with how memory read and write works, and memory addressing. 
 * You **know** how to use common components like `counter`, `edge detector`, `button conditioner`, and `fsm` properly.
 
-> If not, please brush up your FPGA programming knowledge by starting with [this](https://natalieagus.github.io/50002/fpga_1.html) document instead.
+> If not, please brush up your FPGA programming knowledge by starting with [this](https://natalieagus.github.io/computationstructures/fpga/fpga_1) document instead.
 
 The completed project can be found <a href="https://github.com/natalieagus/SampleAlchitryProjects/tree/master/BetaComponents" target="_blank">here</a>, if you want to dive into it right away. 
 
