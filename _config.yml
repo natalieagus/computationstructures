@@ -14,6 +14,7 @@ header:
       slug: /
     - name: Notes
     - name: Exercise
+    - name: Labs
     - name: FPGA
 
 footer:
@@ -30,6 +31,8 @@ collections:
   lecturenotes: 
     output: true
   fpga: 
+    output: true
+  labs:
     output: true
 
 # Build settings
