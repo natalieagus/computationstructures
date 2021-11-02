@@ -1,7 +1,7 @@
 ---
 layout: academic
 permalink: /fpga/fpga_3
-title: Field Gate Programmable Array Tutorial Part 3
+title: Field-Programmable Gate Array Tutorial Part 3
 description: Getting Started with FPGA Part 3 -- Reset and I/O
 ---
 
@@ -437,7 +437,7 @@ This can be fixed if we specify <strong>all</strong> pins on Alchitry Br (recomm
 <ul>
 <li> Create a new file under "Constraints" (right click >> New File) with name 
 <code>filename.xdc</code> (name it anything you want as long as the extension is <code>.xdc</code>). It should fall under "User Constraint" option. </li>
-<li>Paste the content of original <code>au.xdc</code> to it, and i</li>
+<li>Paste the content of original <code>au.xdc</code> to it, and</li>
 <li>Add three more lines to ignore the warning and allow unconstrained bistream: 
 <pre><code>set_property SEVERITY {Warning} [get_drc_checks NSTD-1]
 set_property SEVERITY {Warning} [get_drc_checks UCIO-1]
