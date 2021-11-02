@@ -106,7 +106,7 @@ module full_adder (
 
 And then in the body, we have the `always` block, which as the name suggests it **signifies a connection**, something that is **always** connected.  
 
-<mark> Remember that in this block we are *describing how a hardware device should behave, that is: literally describing its schematic in terms of code for Alchitry / Vivado to **interpret** and create an appropriate hardware description for the **Au** board to run.* </mark>
+<span style="background-color:yellow"> Remember that in this block we are *describing how a hardware device should behave, that is: literally describing its schematic in terms of code for Alchitry / Vivado to **interpret** and create an appropriate hardware description for the **Au** board to run.* </span>
 
 Above the `always` block we can define other modules to be used, clock or reset signals, or simply intermediary connections using the keyword `sig`. 
 
@@ -148,7 +148,7 @@ io_led[2][1] = fulladder.s;
 io_led[2][0] = fulladder.cout;
 ```
 
-*Note:* It is highly recommended that you **do not implement** any further combinational logic modules in `au_top.luc`. Your code has to be as <mark> **modular** </mark> as possible for the sake of easy debugging and development. **As a good practice, the module `au_top.luc` should be only used to simply connect big module(s) to the input/output terminal.** 
+*Note:* It is highly recommended that you **do not implement** any further combinational logic modules in `au_top.luc`. Your code has to be as <span style="background-color:yellow"> **modular** </span> as possible for the sake of easy debugging and development. **As a good practice, the module `au_top.luc` should be only used to simply connect big module(s) to the input/output terminal.** 
 
 Here's a visual representation of the schematic. In other words, `au_top.luc` is the script that **interfaces** your custom modules with the **board's input and output unit:**
 
@@ -202,7 +202,7 @@ io_led[2][0] = fulladder.cout;
 During **synthesis**, the setting of `0` to `io_led[2][1]` and `io_led[2][0]` is *simply ignored*, meaning that it wasn't realised as a sub-circuit on the hardware. Its treated as if the assignment of these LEDs to `0` *never happened*. 
 
 
-<mark> All in all, please do not forget that:</mark>
+<span style="background-color:yellow"> All in all, please do not forget that:</span>
 * Anything that you write in an ***always*** block describes the behaviour (functionality) of a machine you are trying to create. 
 * When you click **build** (the hammer symbol), Xilinx Vivado and various other tools will figure out this behaviour and **then create a circuit that matches this behaviour.** 
 * *This is unlike our usual Python code that is run line by line by the processor.* 

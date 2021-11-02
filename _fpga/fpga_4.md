@@ -61,8 +61,8 @@ out = memory_unit.read_data;
 
 * Number of bits for `.raddr` / `waddr` is $\log_2$(`DEPTH`). 
 * **Important** documentation: 
-	* <mark>`.read_data` always produces the output from `.raddr` supplied in the previous clock cycle. </mark> The documentation says that if you supplied address `A` at `t=0`, then at `t=1` (next clock cycle), `Mem[A]` is produced at `.read_data` port. 
-	* <mark> If you perform **read and write** to the **same location** at the **same clock cycle** e.g: at`t=0`, the result of the data written will be observed only **two clock cycles later** at `t=2`. *At `t=1`, the old data is still produced at the read port.* 
+	* <span style="background-color:yellow">`.read_data` always produces the output from `.raddr` supplied in the previous clock cycle. </span> The documentation says that if you supplied address `A` at `t=0`, then at `t=1` (next clock cycle), `Mem[A]` is produced at `.read_data` port. 
+	* <span style="background-color:yellow"> If you perform **read and write** to the **same location** at the **same clock cycle** e.g: at`t=0`, the result of the data written will be observed only **two clock cycles later** at `t=2`. *At `t=1`, the old data is still produced at the read port.* 
 
 You can familiarise yourself first with how the memory unit works using an `fsm`. 
 * Perform some writes onto the memory unit, and then
@@ -408,7 +408,7 @@ if (slowclk){
 }
 ```
 
-<mark> Some details: </mark> **remember that we need to wait for 1 `clk` cycle** *after*  we supply the `ram` with some read address `ia` for it to produce the correct output (which is the current *instruction* stored at `Mem[ia]`). 
+<span style="background-color:yellow"> Some details: </span> **remember that we need to wait for 1 `clk` cycle** *after*  we supply the `ram` with some read address `ia` for it to produce the correct output (which is the current *instruction* stored at `Mem[ia]`). 
 
 * The `control_unit`'s output depends on the `6-bit` opcode embedded in the *instruction*. 
 

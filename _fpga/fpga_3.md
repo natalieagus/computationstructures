@@ -47,7 +47,7 @@ Notice that you will be unable to **reset** the unit, e.g: restart the sequences
 
 > We also do the same for `seq_plus_vary.luc`, so it can't be reset either at this point. 
 
-The quick reason on why reset doesn't work anymore is because <span style="background-color:yellow"> the `dff` inside `seq_plus_two.luc` module ***is no longer** synchronised* with the actual FPGA clock, while the reset signal **and** all other modules (like the `slowclock`) are *synchronised* with the FPGA clock </span>.  Therefore the `slowclock`  **produces** a bunch of **zeroes** when `reset` button is pressed, and this *stops* `seq_plus_two.luc` from advancing -- **its like *time is frozen* for `seq_plus_two.luc` when `reset` button is pressed.**
+The quick reason on why reset doesn't work anymore is because <span style="background-color:yellow"> the `dff` inside `seq_plus_two.luc` module ***is no longer*** synchronised with the actual FPGA clock, while the reset signal **and** all other modules (like the `slowclock`) are *synchronised* with the FPGA clock </span>.  Therefore the `slowclock`  **produces** a bunch of **zeroes** when `reset` button is pressed, and this *stops* `seq_plus_two.luc` from advancing -- **its like *time is frozen* for `seq_plus_two.luc` when `reset` button is pressed.**
 
 Now you may think that we can easily add this line in  the always block of `seq_plus_two.luc` to manually reset the unit:
 
