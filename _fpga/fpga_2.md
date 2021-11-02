@@ -170,7 +170,7 @@ We now have that additional FSM unit that controls the value of `y` instead of j
 
 Thankfully Lucid comes with a built-in `fsm` declaration, so we don't have to define that FSM by ourselves. `fsm` is similar to `dff` except that it is used to store **state** and not a value. 
 
-> *Think its a little overkill to create an FSM just for this feature of toggling the values of b?  Well, there's many other ways to do this. One possible way is to create a ROM to store the 3 versions of `` values:*
+> Think its a little overkill to create an FSM just for this feature of toggling the values of b?  Well, there's many other ways to do this. One possible way is to create a ROM to store the 3 versions of **values**:
 > >
 > ```cpp 
 > const Y_VALUES = {8h0, 8h0C, 8h07, 8h02} 
