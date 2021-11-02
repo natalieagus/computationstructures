@@ -176,9 +176,9 @@ Thankfully Lucid comes with a built-in `fsm` declaration, so we don't have to de
 > const Y_VALUES = {8h0, 8h0C, 8h07, 8h02} 
 > ```
 > 
-> *Note: `Y_VALUES[0]` is `8h02` **and not** `8h0`. Indexes *
+> *Note: `Y_VALUES[0]` is `8h02` **and not** `8h0`.*
 > 
-> and use a 2-bit `dff` whose output value is used as an  input `address` to the ROM. We increment the content of the `dff` by 1 at each clock cycle, and reset it back to `00` once it reaches `10` (because we don't need `11`):
+> Then, use a 2-bit `dff` whose output value is used as an  input `address` to the ROM. We increment the content of the `dff` by 1 at each clock cycle, and reset it back to `00` once it reaches `10` (because we don't need `11`):
 
 ```cpp
 dff counter[2](.clk(clk), .rst(rst));
@@ -196,7 +196,7 @@ else{
 ...// set other connections for adder
 ```
 
->Sounds like so much hassle -- technically we can see the `dff` as storing a *state* too, so let's be a little extra and use `fsm` module instead -- because... why not?*
+>Sounds like so much hassle -- technically we can see the `dff` as storing a *state* too, so let's be a little extra and use `fsm` module instead -- because... why not?
 
 ### Declaring FSM
 We can declare our FSM by setting its `clk` and `rst` signal, along with the list of **states** before the `always` block:
