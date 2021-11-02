@@ -1,7 +1,7 @@
 ---
 layout: academic
 permalink: /fpga/fpga_2
-title: FPGA Tutorial Part 2
+title: Field Gate Programmable Array Tutorial Part 2
 description: Getting Started with FPGA Part 2 -- Sequential Logic and FSM
 ---
 
