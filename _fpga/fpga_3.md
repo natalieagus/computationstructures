@@ -34,7 +34,7 @@ In this section we will discuss **issues of reset** if you supply a custom clock
 1. The standard `reset` button will not work anymore to reset this unit with custom clock, so you have to perform a **manual reset.**  
 2. There's **no easy way** to synchronize the reset of this unit with custom clock and the reset of other units with FPGA clock. Depending on your design, it might be *problematic* if some units come out of reset earlier / later than others. 
 
-<mark> By definition, a system reset must reset ALL components synchronously </mark>.
+<span style="background-color:yellow"> By definition, a system reset must reset ALL components synchronously </span>.
 
 ### Manual Reset with Another Button
  
@@ -47,7 +47,7 @@ Notice that you will be unable to **reset** the unit, e.g: restart the sequences
 
 > We also do the same for `seq_plus_vary.luc`, so it can't be reset either at this point. 
 
-The quick reason on why reset doesn't work anymore is because <mark> the `dff` inside `seq_plus_two.luc` module ***is no longer** synchronised* with the actual FPGA clock, while the reset signal **and** all other modules (like the `slowclock`) are *synchronised* with the FPGA clock </mark>.  Therefore the `slowclock`  **produces** a bunch of **zeroes** when `reset` button is pressed, and this *stops* `seq_plus_two.luc` from advancing -- **its like *time is frozen* for `seq_plus_two.luc` when `reset` button is pressed.**
+The quick reason on why reset doesn't work anymore is because <span style="background-color:yellow"> the `dff` inside `seq_plus_two.luc` module ***is no longer** synchronised* with the actual FPGA clock, while the reset signal **and** all other modules (like the `slowclock`) are *synchronised* with the FPGA clock </span>.  Therefore the `slowclock`  **produces** a bunch of **zeroes** when `reset` button is pressed, and this *stops* `seq_plus_two.luc` from advancing -- **its like *time is frozen* for `seq_plus_two.luc` when `reset` button is pressed.**
 
 Now you may think that we can easily add this line in  the always block of `seq_plus_two.luc` to manually reset the unit:
 
@@ -84,7 +84,7 @@ It is **entirely possible** for the slowclock (rising edge) to entirely **miss**
 
 Plus, if it happens to *change* at the shaded region then we might run into *metastability* problem.  Even worse, since we don't know how button input from external source will change in relation to the rising edge of the clock (be it system or custom), it is possible that some flip flops are reset and some others aren't. This is disastrous!
 
-<mark> Bottomline is, external inputs are **unreliable**, and can be disastrous if its used to trigger important events like a `reset` </mark>. 
+<span style="background-color:yellow"> Bottomline is, external inputs are **unreliable**, and can be disastrous if its used to trigger important events like a `reset` </span>. 
 
 ### Reset Conditioner
 
@@ -100,7 +100,7 @@ For our `seq_plus_two.luc` unit, we used a custom clock and a *separate* manual 
 > *How can we slow-down the output of the unit (so that we can observe the output with the naked eye) without having to use a different clock?* 
 
 
-<mark> **Bottomline is:** if you need to `reset` your module for any purpose, **it is a bad idea  to use another clock other than the original FPGA clock** -- unless of course you're very experienced in this field. </mark>
+<span style="background-color:yellow"> **Bottomline is:** if you need to `reset` your module for any purpose, **it is a bad idea  to use another clock other than the original FPGA clock** -- unless of course you're very experienced in this field. </span>
 
 
 ## Slowing Modules with FPGA Clock
@@ -241,7 +241,7 @@ register_1.d = buttoncond.out
  ```cpp
 some_combi_logic.input = buttoncond.out
 ```
-...but <mark> using `buttoncond.out` plainly **will not work** if you intend to use the button press as a *trigger* that's supposed to happen **ONCE per PRESS.**   </mark>
+...but <span style="background-color:yellow"> using `buttoncond.out` plainly **will not work** if you intend to use the button press as a *trigger* that's supposed to happen **ONCE per PRESS.**   </span>
 
 In order to trigger the system once per press, you need to use the edge detector (don't forget to specify `#RISE` or `#FALL` or both):
 ```cpp
@@ -422,7 +422,7 @@ Finally, we will try to show the result `sc.out_result` on an external LED inste
 
 Create a new **constraint** file (at the osconstraint folder) and name it `custom` (or any other name that you want, as long as the extension is `.acf`) .
 
-<mark> Important: You are recommended to just have one constraint file. If you need the default I/O terminals on Alchitry Io, then copy over the contents of the other two acf files, <code>io.acf</code> and <code>alchitry.acf</code> and paste it to <code>custom.acf</code>, and delete the former two so you just simply have <code>custom.acf</code>.  Delete ALL other <code>.acf</code> afterwards. </mark>
+<span style="background-color:yellow"> Important: You are recommended to just have one constraint file. If you need the default I/O terminals on Alchitry Io, then copy over the contents of the other two acf files, <code>io.acf</code> and <code>alchitry.acf</code> and paste it to <code>custom.acf</code>, and delete the former two so you just simply have <code>custom.acf</code>.  Delete ALL other <code>.acf</code> afterwards. </span>
 
 <div class="redborder"> At this point if you build, chances are you will be met some error as such:
 <pre><code>ERROR: [DRC NSTD-1] 
@@ -487,7 +487,7 @@ pin <pin name> <Br terminal pin name> pullup
 ```  
 
 
-<mark> Input pins with default <code>pulldown</code> resistor will produce a <code>0</code> and input pins with default <code>pullup</code> will produce a <code>1</code>  if there's no external value fed into it. </mark>
+<span style="background-color:yellow"> Input pins with default <code>pulldown</code> resistor will produce a <code>0</code> and input pins with default <code>pullup</code> will produce a <code>1</code>  if there's no external value fed into it. </span>
 
 > The `pulldown` and `pullup` internal resistors are made to ensure that there won't be "*floating*" or "*invalid*" input values that's fed to your system when there's nothing that's fed to it (i.e: switched off). Read <a href="https://www.electronics-tutorials.ws/logic/pull-up-resistor.html" target="_blank">this</a> if you'd like to know more about pull-up and pull-down resistors. 
 
@@ -502,7 +502,7 @@ You are recommended to read further on (if they're applicable to your project of
 2. How LED Strips work (e.g: WS2812B, or SK6812 LEDs). You can refer to online tutorials like  <a href="https://vivonomicon.com/2018/12/24/learning-how-to-fpga-with-neopixel-leds/" target="_blank">this</a> one. We have some sample LED writers that's Au and WS2812B compatible <a href="https://github.com/natalieagus/SampleAlchitryProjects/tree/master/LEDStripTest" target="_blank">here</a>  to get you started. 
 3. How you can utilize another powerful **storage device:** the default RAM component. You can find the <a href="https://alchitry.com/blogs/tutorials/hello-your_name_here" target="_blank"> tutorial</a> written by the original author here (there's single-port and dual-port RAM). 
 
-	<mark><strong>RAM component</strong> is <strong>especially useful</strong> if you need to store a **large** amount of data </mark>, e.g data to be rendered out to large (32x32 or 64x32, etc) LED matrices. It is convenient to use the `dff` for small data storages, but you will run out of logic units real fast if you were to create thousands of dffs (not to mention the bizzare amount of time needed to compile the code). 
+	<span style="background-color:yellow"><strong>RAM component</strong> is <strong>especially useful</strong> if you need to store a **large** amount of data </span>, e.g data to be rendered out to large (32x32 or 64x32, etc) LED matrices. It is convenient to use the `dff` for small data storages, but you will run out of logic units real fast if you were to create thousands of dffs (not to mention the bizzare amount of time needed to compile the code). 
 
 4. How RGB LED Matrix works. Some <a href="https://learn.adafruit.com/fpga-rgb-matrix/overview" target="_blank">online tutorials</a> can be a good starting point. You need to have some pretty good understanding about sending clocked serial data though. We have some sample RGB Matrix writer  <a href="https://github.com/natalieagus/SampleAlchitryProjects/tree/master/MatrixLEDTest" target="_blank">here</a> (64x32 compatible, simply adjust the parameter if you have other dimensions, double check the clock and addressing, this follows strictly [adaFruit matrix LED](https://learn.adafruit.com/32x16-32x32-rgb-led-matrix/new-wiring)).  You can use it with some simple RAM modules (2 units of 64x16 cells, each cell containing 3 bits, each unit to drive one-half of the matrix). You can instantiate a simple_ram module like this:
 	```cpp
@@ -518,7 +518,7 @@ You are recommended to read further on (if they're applicable to your project of
 Once you're comfortable with some basic FPGA coding, you can begin designing the datapath for your game and implement the modules required. You may refer to <a href="https://natalieagus.github.io/50002/1D_programmable_machine.html" target="_blank">this tutorial</a> for clues on how to begin if needed. 
 
 ## Final note 
-To save you some pain and time, it always good to <mark><strong>TEST</strong> your <strong>hardware</strong> AND <strong>connections</strong> first <strong>BEFORE</strong> testing them together with your implementation </mark>:
+To save you some pain and time, it always good to <span style="background-color:yellow"><strong>TEST</strong> your <strong>hardware</strong> AND <strong>connections</strong> first <strong>BEFORE</strong> testing them together with your implementation </span>:
 1. Test whether every single segment of your 7-segment device is **working**. Use really simple stuffs like jumper wires, voltage source and ground. No code needed. 
 
 3. **If you use LED strips, test whether each LED** **works**. Write some simpler tester code to light up all the LEDs, light them up to with alternating colors, light them up with different colors, etc. 
