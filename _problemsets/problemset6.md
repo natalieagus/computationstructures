@@ -37,7 +37,7 @@ What is the word at memory address `0xC`? And what is the word at memory address
 ## The Remainder (Basic)
  
  Refer to the C-code below:
-```
+```cpp
 int f(int a, int b){
 	 if (a<b) return [6];
 	 else return f(a-b, b);
@@ -45,7 +45,7 @@ int f(int a, int b){
 ```
 
 The above C-code compiles to the following Beta assembly code:
-```
+```cpp
 F:	PUSH(LP)
 	PUSH(BP)
 	MOVE(SP, BP)
@@ -114,7 +114,7 @@ LL02: POP([5a])
 ## The GCD (Intermediate)
 Consider the following implementation of an algorithm for finding the greatest common divisor of two integers **recursively**:
 
-``` 
+```cpp 
 int gcd(int a,int b) { 
 	if (a == b) return a; 
 	if (a > b) return gcd(a-b,b); 
@@ -123,7 +123,7 @@ int gcd(int a,int b) {
 ```
 The C compiler has compiled this procedure into the following code for an unpipelined Beta processor:
 
-``` 
+```cpp 
 gcd: PUSH (LP) 
 PUSH (BP) 
 MOVE (SP, BP) 
@@ -233,7 +233,7 @@ During execution of `gcd(28,70)`, the Beta processor is halted and the contents 
 **Part 1:**
 
 As a warm-up, hand assemble the following instructions:
-```
+```cpp
 ADDC(R1,128,R7)
 LD(R11,-4,R0)
 ST(R0,-4,R11)
@@ -248,7 +248,7 @@ BEQ(R9,0x1C,R27): 0x77690002</code></pre> </p></div><br>
 **Part 2:**
 
 The following C code is compiled into byte code:
-```
+```cpp
 int f(int x, int *y){
 	static int a=0;
 	int b=0;
@@ -259,7 +259,7 @@ int f(int x, int *y){
 	return a;
 }
 ```
-```
+```cpp
 int main(int argc, char **argv){
 	int z[5]={1,2,3,4,5};
 	int r1, r2;
@@ -292,7 +292,7 @@ Value of r1 = 6 and r2= 8 after the program finishes.
 **Part 3:**
 
 When the above C code is compiled into byte code, it is equivalent to the following assembly code:  
-```
+```cpp
 f: 
  PUSH(LP)  
  PUSH(BP)  

@@ -44,7 +44,7 @@ Take a look at the following memory cells. The rightmost bit line corresponds to
 ## Cache Exercise (Basic)
 
 The following is a sequence of address references given as **word** addresses (given from left to right):
-```
+```cpp
 2,3,11,16,21,13,64,48,19,11,3,22,4,27,6,11
 ```
 

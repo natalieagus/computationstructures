@@ -220,7 +220,7 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 ## Memory Addressing (Basic)
 
 1. You are given that the 32-bit *word* at memory address `0` has a binary form of
-	```
+	```cpp
 	0000 0100 0000 0011 0000 0010 0000 0001
 	```
 
@@ -233,7 +233,7 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 
 2. How many bits of addresses are required at minimum to address the following chunk of data, assuming that they are **byte** addressable? 
 
-	```
+	```cpp
 	0000 0100 0000 0011 0000 0010 0000 0001
 	1111 1111 0000 0000 1111 1111 0000 0000
 	1010 1010 0011 1100 0101 0011 0011 0000 

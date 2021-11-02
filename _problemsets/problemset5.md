@@ -49,7 +49,7 @@ Each topic's questions are grouped into **three** categories: basic, intermediat
 
 What does the following piece of Beta assembly do? Hand assemble the beta **assembly language** into **machine language**. 
   
-```
+```cpp
 I = 0x5678
 B = 0x1234
 
@@ -144,7 +144,7 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 
 3. Notta has noticed the following C code fragment appears frequently in the benchmarks:
 	
-	```
+	```cpp
 	int *_p; /_* Pointer to integer array *_/_
 	_int i,j; /_* integer variables *_/_
 
@@ -155,7 +155,7 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 
 	The pointer variable `p` contains the *address* of a **dynamically allocated** array of integers. The value of `p[i]` is stored at the address `Mem[p +4i]` where `p` and `i` are locations containing the values of the corresponding C variables. On a conventional Beta this code fragment is translated to the following instruction sequence:
 
-	```
+	```cpp
 	LD(...,R1)     /* R1 contains p, the array base address */
 	LD(...,R2)     /* R2 contains I, the array index */    ...
 	SHLC(R2,2,R0)  /* compute byte-addressed offset = 4*i */
@@ -165,7 +165,7 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 
 	Notta proposes the addition of an `LDX` instruction that shortens the last three instructions to:
 
-	```
+	```cpp
 	SHLC(R2,2,R0)  /* compute byte-addressed offset = 4*i */
 	LDX(R0,R1,R3)  /* fetch p[i] into R3 */
 	```
@@ -190,7 +190,7 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 
 5. It occurs to Notta that adding an `STX` instruction would probably be useful too. Using this new instruction, `p[i] = j` might compile into the following instruction sequence:
 
-	```
+	```cpp
 	SHLC(R2,2,R0)  /* compute byte-addressed offset = 4*i */
 	STX(R3,R0,R1)  /* R3 contains j, R1 contains p */
 	```
@@ -220,7 +220,7 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 	</p></div><br>
 
 2. Explain why the following instruction cannot be added to our Beta instruction set without further hardware modifications on the datapath:
-	```
+	```cpp
 	PUSH(Rc, 4, Ra):
 		Mem[Reg[Ra]] <-- Reg[Rc]
 		Reg[Ra] <-- Reg[Ra] + 4
@@ -234,7 +234,7 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 ## Another New Beta Instruction (Basic)
 Given the following C-code:
 
-```
+```cpp
 if (a != 0){ 
 	b = 3;
 }  
@@ -243,7 +243,7 @@ if (a != 0){
 
 where `a`, `b` are variables that have been initialised in the earlier part of the code (not shown). If we were to implement the following C-code using the Beta instruction set, we must do this in at least **two** cycles:
 
-```
+```cpp
 BEQ(Ra, label_continue, R31)  
 ADDC(R31, 3, Rb)  
 label_continue: (other code)
@@ -255,7 +255,7 @@ The `ALU` in this particular  Beta however, implements *five* new functions on t
 
 Due to this, your classmate suggested that we can actually do this in **one** cycle by modifying the `Control Unit` to accept  this **new instruction** called `MCNZ` (move constant if not zero) instead:
 
-```
+```cpp
 MCNZ(Ra, literal, Rc) : 
 	if(Reg[Ra] != 0)
 		Reg[Rc] <-- literal 
@@ -297,7 +297,7 @@ Your friend came up with several short test programs. You want to select one of 
 *You can assume that the initial content of all registers are `0`.* 
 
 **Program 1**:
-```
+```cpp
 .=0x000  
 LDR(constant, R0) 
 LDR(constant + 4, R1) 
@@ -310,7 +310,7 @@ LONG(4)
 ```
 
 **Program 2**:
-```
+```cpp
 .=0X000  
 CMOVE(5, R1) 
 LDR(constant, R2) 
@@ -324,7 +324,7 @@ answer: LONG(0)
 ```
 
 **Program 3**:
-```
+```cpp
 .=0x000  
 constant: LONG(8)
 LONG(4)
@@ -335,7 +335,7 @@ HALT()
 ```
 
 **Program 4**:
-```
+```cpp
 .=0x000  
 CMOVE(5, R0)  
 ST(R0, constant + 8, R31) 
@@ -395,14 +395,14 @@ As always, we can  detect this particular fault by running a simple test program
 Assume that all register values were `0` at the beginning of each program execution.
 
 **Program 1**: (executed for two CLK cycles)
-```
+```cpp
 .= 0  
 BEQ(R0, .+4, R31)  
 ADDC(R0, 1, R0)  
 ```
 
 **Program 2**: (executed for three CLK cycles)
-```
+```cpp
 .=0  
 CMPEQ(R0, R0, R0)  
 BNE(R0, .-4, R31)  
@@ -410,7 +410,7 @@ ADDC(R0, 1, R0)
 ```
 
 **Program 3**: (executed for four CLK cycles)
-```
+```cpp
 .=0  
 LD(R0, 0, R0)  
 MULC(R0, 1, R0)  
@@ -419,21 +419,21 @@ CMPEQ(R0, R31, R2)
 ```
 
 **Program 4**: (executed for two CLK cycles)
-```
+```cpp
 .=0
 ST(R0, x, R31) 
 x: LONG(12)
 ```
 
 **Program 5**: (executed for two CLK cycles)
-```
+```cpp
 .=0  
 JMP(R1)  
 ADDC(R0, 1, R1)
 ```
 
 **Program 6**: (executed for two CLK cycles)
-```
+```cpp
 .=0  
 LDR(R31, .+8, R0)  
 ADDC(R0, 1, R1)  
