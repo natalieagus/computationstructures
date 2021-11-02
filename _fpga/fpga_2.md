@@ -62,7 +62,7 @@ To use a `dff` properly, you need to define:
 <mark> All of the above must be done BEFORE the always block to take desired effect</mark>. 
 
 The syntax to define the so-called *arguments* to `dff` during declarations are very simple -- use the bracket `()` separated by commas. An 8-bit `dff` is basically 8 copies of 1-bit `dff` (declared as an array with the square `[]` brackets): 
-```
+```cpp
 module seq_plus_two (
 	input clk,  // clock
 	input rst,  // reset
@@ -77,7 +77,7 @@ module seq_plus_two (
 
 The `dff` has two important terminals, `.d` for input and `.q` for output. We simply have to connect them with the adder. Let's declare the adder as well and connect them:
 
-```
+```cpp
 {
   dff register_1[8](#INIT(0), .clk(clk), .rst(rst));
   eight_bit_adder plus_two;
@@ -95,11 +95,11 @@ You can download `seq_plus_two.luc` <a href="https://github.com/natalieagus/Samp
 ## Testing Your Sequential Logic Module
 
 If you declare the `seq_plus_two` module in `au_top`:
-```
+```cpp
 seq_plus_two seqplustwo(.clk(clk), .rst(rst));
 ```
  and connect its output to the LED,
-```
+```cpp
 io_led[0] = seqplustwo.out;
 ```
 **You won't see any concrete thing on `io_led[0]`. It will just flicker really fast and you can't see. anything that resembles some 8-bit binary values that are incremented by 2.**
@@ -123,16 +123,16 @@ If `i` is set to be nonzero, then the counter will produce an `n` bit output tha
 > You don't have to read the details if you are running low on time. Just know that you can use a `counter` component with `#DIV` set to produce a clock signal with slower rate. 
 
 Therefore we can declare our `counter` as follows:
-```
+```cpp
 counter slowclock(#SIZE(1),#DIV(26), .clk(clk), .rst(rst));
 ```
 And use its output as a **slower clock** for `seqplustwo` module:
-```
+```cpp
 seq_plus_two seqplustwo(.clk(slowclock.value), .rst(rst));
 ```
 
 Don't forget to connect `seqplustwo`'s output to `io_led` in the `always` block.
-```
+```cpp
 io_led[0] = seqplustwo.out;
 ```
 
@@ -172,12 +172,14 @@ Thankfully Lucid comes with a built-in `fsm` declaration, so we don't have to de
 
 > *Think its a little overkill to create an FSM just for this feature of toggling the values of b?  Well, there's many other ways to do this. One possible way is to create a ROM to store the 3 versions of `` values:*
 > >
-> ``` const Y_VALUES = {8h0, 8h0C, 8h07, 8h02} ```
+> ```cpp 
+> const Y_VALUES = {8h0, 8h0C, 8h07, 8h02} 
+> ```
 > 
 > *Note: `Y_VALUES[0]` is `8h02` **and not** `8h0`. Indexes *
 > 
 > and use a 2-bit `dff` whose output value is used as an  input `address` to the ROM. We increment the content of the `dff` by 1 at each clock cycle, and reset it back to `00` once it reaches `10` (because we don't need `11`):
-``` 
+```cpp
 dff counter[2](.clk(clk), .rst(rst));
 eight_bit_adder adder; 
 
@@ -196,14 +198,14 @@ else{
 
 ### Declaring FSM
 We can declare our FSM by setting its `clk` and `rst` signal, along with the list of **states** before the `always` block:
- ```
+```cpp
 fsm y_controller(.clk(clk), .rst(rst)) = {S0, S1, S2};
 ```
 
 Then in the `always` block, we describe the hardware connections of this module, and the logic for the FSM: **to describe what output should be set at each fsm state, and the next state values**. The code is pretty descriptive and straightforward. 
 
 Create a new module and name it `seq_plus_vary.luc` to contain this code:
-```
+```cpp
 module seq_plus_vary (
 	input clk,  // clock
 	input rst,  // reset
