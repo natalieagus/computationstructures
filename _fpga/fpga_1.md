@@ -92,7 +92,7 @@ We can describe this schematic in Lucid, by first defining the input and output.
 ### Define Input and Output terminals
 
 **Create a new source file** and name it `full_adder.luc`. **You will see that all lucid files should begin with terminals definition.** In a full adder, we have 3 1-bit inputs: `x, y, cin` and 2 1-bit outputs: `s, cout` . Therefore we shall modify the header as such:
-```
+```cpp
 module full_adder (
 	input x,
 	input y,
@@ -112,7 +112,7 @@ Above the `always` block we can define other modules to be used, clock or reset 
 
 The following code describes the schematic of an FA. The syntax is self-explanatory. Refer to Page 2 of the documentation (<a href="https://cdn.shopify.com/s/files/1/2702/8766/files/Lucid_Reference.pdf?5280018026990691420" target="_blank">Lucid Quick Reference Guide</a>) for a summary of syntaxes. 
 
-```
+```cpp
 {
 sig i, j, k; // connector
 always {
@@ -130,13 +130,13 @@ You can download completed `full_adder.luc`  <a href="https://github.com/natalie
 ## Connect Unit to I/O for Testing
 
 Now let's **declare and connect** the Full Adder module in `au_top.luc` so that we can supply an actual input and output to the unit. Add the following line below `sig rst` in `au_top.luc`:
-```
+```cpp
 sig rst; // reset signal
 full_adder fulladder;
 ```
 
 Then, connect the input and output terminal of the `fulladder` with some preset IO terminals in the `always` block, below the `io_sel = 4hf` line (keep the rest intact):
-```
+```cpp
 ... 
 io_sel = 4hf; // select no digits
 
@@ -190,11 +190,11 @@ This document will not teach you how to define more inputs for use on the `Br` b
 Notice how you have this part that sets the `io_led` to off: 
 
 > Its written using the **array builder**, basically we set 3 sets of 8-bit values represented in hex `h` as 0. See <a href="https://cdn.shopify.com/s/files/1/2702/8766/files/Lucid_Reference.pdf?5280018026990691420" target="_blank">Lucid Quick Reference Guide</a> guide.
-```
+```cpp
 io_led = 3x{{8h00}};  // turn LEDs off
 ```
 But later on we seem to overwrite two of the LED's value to reflect `s` and `cout`:
-```
+```cpp
 io_led[2][1] = fulladder.s;
 io_led[2][0] = fulladder.cout;
 ```
@@ -212,7 +212,7 @@ During **synthesis**, the setting of `0` to `io_led[2][1]` and `io_led[2][0]` is
 ## Building More Combinational Logic Devices
 
 Once you have tested that your full adder works correctly, it is time to create a full-blown 8-bit ripple-carry full adder, using 8 of these units. The routine is pretty much the same. Create a file called `8_bit_full_adder.luc`, and define its input/output terminals:
-```
+```cpp
 module eight_bit_adder (
 	input x[8],
 	input y[8],
@@ -222,14 +222,14 @@ module eight_bit_adder (
 )
 ```
 Then, declare eight full adder units:
-```
+```cpp
 {
 full_adder fulladder[8];
 }
 ```
 
 In the always block, define the connections:
-```
+```cpp
 {
 full_adder fulladder[8];
 always {
@@ -243,11 +243,11 @@ always {
 }
 ```
 You can use the array representations to assign values in a **compact** way, for example: 
-```
+```cpp
 fulladder.cin[7:1] = fulladder.cout[6:0];
 ```
 is equivalent to:
-```
+```cpp
 fulladder.cin[7] = fulladder.cout[6];
 fulladder.cin[6] = fulladder.cout[5];
 fulladder.cin[5] = fulladder.cout[4];
@@ -263,12 +263,12 @@ You can download `eight_bit_adder.luc`  <a href="https://github.com/natalieagus/
 ### Test with actual input/output
 
 In `au_top.luc`, declare the 8-bit ripple carry full adder above the `always` block:
-```
+```cpp
 eight_bit_adder eightbitadder;
 ```
 
 and connect the terminals into these IO components at the end of the `always` block:
-```
+```cpp
 eightbitadder.x = io_dip[0];
 eightbitadder.y = io_dip[1];
 eightbitadder.cin = io_dip[2][0];
@@ -293,7 +293,7 @@ Remember how we can also implement the full adder as ROM instead? Here's how it 
 You can say that implementing anything as ROM means that we "hardcode" the answer, instead of synthesizing it using basic logic components like the gates: AND, XOR, OR, etc. The benefit of implementing the output as ROM is to minimise the hassle in synthesizing the logic out, but at the cost of *space* and *money*. 
 
 We can implement a ROM in the FPGA very easily. The following module shows an example of implementing a Full Adder as ROM:
-```
+```cpp
 module full_adder_ROM (
 	// 3 bit input,
 	// address[2] is x, 
@@ -328,7 +328,7 @@ A multiplexer can be easily implemented using the keyword `case` in Lucid. Consi
 
 The three multiplexers can be easily implemented as follows. First, declare the input and output terminals:
 
-```
+```cpp
 module eight_bit_shiftleft (
 	input a[8],
 	input b[3],
@@ -336,7 +336,7 @@ module eight_bit_shiftleft (
   ) 
 ```
 And then declare the two 8-bit intermediary signals `w` and `x`. In the `always` block, we implement the three multiplexers using three `case`, depending on each bit of input `b`:
-```
+```cpp
 {
   sig w[8];
   sig x[8];
