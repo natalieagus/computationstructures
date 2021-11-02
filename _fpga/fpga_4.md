@@ -2,7 +2,7 @@
 layout: academic
 permalink: /fpga/fpga_4
 title: FPGA Part 4
-description: Getting Good with FPGA Part 3 -- Building Beta CPU
+description: Getting Good with FPGA -- Building Beta CPU
 ---
 
 
