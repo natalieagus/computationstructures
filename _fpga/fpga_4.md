@@ -1,6 +1,6 @@
 ---
 layout: academic
-permalink: /fpga/fpga_3
+permalink: /fpga/fpga_4
 title: FPGA Part 4
 description: Getting Good with FPGA Part 3 -- Building Beta CPU
 ---
