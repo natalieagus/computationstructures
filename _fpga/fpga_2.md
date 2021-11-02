@@ -59,7 +59,7 @@ To use a `dff` properly, you need to define:
 2. The `rst` signal (optional), and 
 3. The `INIT` value (optional) . 
 
-<mark> **All** must be done **before the always block** to take effect</mark>. 
+<mark> All of the above must be done BEFORE the always block to take desired effect</mark>. 
 
 The syntax to define the so-called *arguments* to `dff` during declarations are very simple -- use the bracket `()` separated by commas. An 8-bit `dff` is basically 8 copies of 1-bit `dff` (declared as an array with the square `[]` brackets): 
 ```

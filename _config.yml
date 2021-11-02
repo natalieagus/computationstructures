@@ -41,7 +41,9 @@ sass:
     style: :compressed
 plugins:
   - jekyll-feed
-  
+
+highlighter: rouge
+    input: GFM
 
 # Excluded items
 exclude:
