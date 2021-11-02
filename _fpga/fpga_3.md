@@ -526,7 +526,7 @@ To save you some pain and time, it always good to <mark>**test** your **hardware
 5. Check if the **buttons** or any input device you bought is working by capturing its presses and showing it out on an LED on Alchitry Io. Also, ensure that the button press is **crisp** and not wonky. 
 6. If you're using the **breadboard**, make sure the breadboard itself works fine. If you're soldering on the PCB, always test your connection first using some voltage source, ground, and jumper wires. 
 
-<mark> **ONLY** and **ABSOLUTELY ONLY** when you are 100% sure that the hardware is working fine, you may use them to test your modules. </mark>
+<span style="background-color:yellow"> **ONLY** and **ABSOLUTELY ONLY** when you are 100% sure that the hardware is working fine, you may use them to test your modules. </span>
 
 
 
