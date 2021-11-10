@@ -1,7 +1,7 @@
 ---
 layout: academic
 permalink: /fpga/fpga_1
-title: Field Gate Programmable Array Tutorial Part 1
+title: Field-Programmable Gate Array Tutorial Part 1
 description: Getting Started with FPGA Part 1 -- Combinational Logic
 ---
 
