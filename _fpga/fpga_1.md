@@ -190,9 +190,11 @@ This document will not teach you how to define more inputs for use on the `Br` b
 Notice how you have this part that sets the `io_led` to off: 
 
 > Its written using the **array builder**, basically we set 3 sets of 8-bit values represented in hex `h` as 0. See <a href="https://cdn.shopify.com/s/files/1/2702/8766/files/Lucid_Reference.pdf?5280018026990691420" target="_blank">Lucid Quick Reference Guide</a> guide.
+{% raw %}
 ```cpp
 io_led = 3x{{8h00}};  // turn LEDs off
 ```
+{% endraw %}
 But later on we seem to overwrite two of the LED's value to reflect `s` and `cout`:
 ```cpp
 io_led[2][1] = fulladder.s;
