@@ -1,6 +1,6 @@
 ---
 layout: academic
-permalink: /lecturenotes/digitalabstraction
+permalink: /lecturenotes/cmostechnology
 title: Week 2 Part 1 - CMOS Technology
 description: This notes focuses on how MOSFET works, which is the hardware used as a building block to make combinational logic devices.  
 ---
@@ -70,11 +70,11 @@ If we connect these MOSFETs connected in a specific way, we can **create** a com
 
 There are two types of FETs: the **NFET** and the **PFET**.
 
-1.  **The NFET** : the majority of the charge carrier for the **bulk** are *holes* (p-type semiconductor). The majority of the charge carrier for the **source and drain** are electrons (n-type semiconductor). Typically, the bulk is connected to GND to keep the PN junction *_reverse biased_*.
+1.  **The NFET** : the majority of the charge carrier for the **bulk** are *holes* (p-type semiconductor). The majority of the charge carrier for the **source and drain** are electrons (n-type semiconductor). Typically, the bulk is connected to GND to keep the PN junction *reverse biased*.
 
 	>Please watch the pre-preading video or refer to the later section if you are unclear about what is a PN junction, p-type, or n-type semiconductors.
 
-2.  **The PFET** : the majority of the charge carrier for the **bulk** are electrons (n-type semiconductor). The majority of the charge carrier for the **source and drain** are holes (p-type semiconductor). Typically, the bulk is connected to `VDD` to keep the PN junction *_reverse biased_*
+2.  **The PFET** : the majority of the charge carrier for the **bulk** are electrons (n-type semiconductor). The majority of the charge carrier for the **source and drain** are holes (p-type semiconductor). Typically, the bulk is connected to `VDD` to keep the PN junction *reverse biased*
 
 
 
@@ -166,7 +166,7 @@ To be precise, an electron is one of the *constituents* of an atom, having a neg
 When p-type and n-type semiconductors are placed together, the free electrons from n-type will **flow over (diffuse)** to the p-type and fill its holes (impurities). Filling up a hole results in a negatively charged ion at the p-type semiconductor, as illustrated as the *gray
 circles* in Figure above. Equally, these free electrons leaving the n-type leaves behind a **positively charged ion** at the n-type semiconductor. This is illustrated as the yellow circles. 
 
-Eventually, a space-charge builds up forming an **electric field** as denoted in the left drawings (the yellow circles and the grey circles form electric field), *preventing* more free electrons from the n-type side to the p-type side, thereby forming an insulating layer called **_depletion region_**.
+Eventually, a space-charge builds up forming an **electric field** as denoted in the left drawings (the yellow circles and the grey circles form electric field), *preventing* more free electrons from the n-type side to the p-type side, thereby forming an insulating layer called **depletion region**.
 
   
 
@@ -174,7 +174,7 @@ Eventually, a space-charge builds up forming an **electric field** as denoted in
 
 For NFETs, when there's presence of high (positive) voltage at the gate, it repels the extra holes at the p-type bulk. Basically, a positive voltage applied to the gate attracts electrons (which are minority in the p-type substrate) to the interface between the gate dielectric and the two n-types semiconductors (drain and source). 
 
-These electrons form a conducting **n-type channel** between the source and the drain, called the **_inversion layer_**. When there's *potential difference* between the drain and the source, the current will flow from source to drain through this inversion layer. 
+These electrons form a conducting **n-type channel** between the source and the drain, called the **inversion layer**. When there's *potential difference* between the drain and the source, the current will flow from source to drain through this inversion layer. 
 
 For PFETs the opposite happens. When there's presence of low (negative) voltage at the gate, it repels the extra electrons at the n-type bulk. Basically, holes (which are minority in the n-type substrate) are the majority in the region between the gate dielectric and the two p-types semiconductors, forming a conducting **p-type channel** (inversion layer). When there's potential difference between drain and source, then the current will flow from source to drain through this inversion layer. 
 
@@ -287,7 +287,7 @@ Recall that combinational devices have timing specifications that tells us the u
 
 ### Propagation Delay $t_{pd}$
 
-So far we haven't discussed about this term called *_propagation delay_*, which is *specification* that a combinational logic device must have.
+So far we haven't discussed about this term called *propagation delay*, which is *specification* that a combinational logic device must have.
 
 The propagation delay, denoted as $t_{pd}$ is defined as follows:
 
@@ -313,8 +313,8 @@ The contamination delay  denoted as $t_{cd}$ is defined as follows:
 The effective $t_{cd}$ of an entire circuit is the **minimum** *cumulative* contamination delay over *all paths from inputs to outputs* in the combinational logic circuit. 
 
 The intuition behind why t$_{cd}$ is calculated as the minimum cumulative contamination delay over all paths:
-- It takes the fastest route to propagate *_invalid_* signal and
-- Finally *_contaminates ANY output_* (to be invalid, when it was initially valid).
+- It takes the fastest route to propagate *invalid* signal and
+- Finally *contaminates ANY output* (to be invalid, when it was initially valid).
 
 
 
