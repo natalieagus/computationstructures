@@ -26,7 +26,7 @@ This document is written to guide you with hardware coding in <a href="https://c
 * On-board clock speed: **100 MHz.** 
 * **102** IO pins (you'll never run out of any!) 
 
-More information about the board can be found <a href="https://alchitry.com/products/alchitry-au-fpga-development-board" target="_blank">here</a> but for now the above suffices. 
+More information about the board can be found <a href="https://alchitry.com/boards/au" target="_blank">here</a> but for now the above suffices. 
 
 *It is also recommended that you read this guide at the end of week 2, after you have finished **logic synthesis**, otherwise you might feel a little lost.* 
 
@@ -41,7 +41,7 @@ More information about the board can be found <a href="https://alchitry.com/prod
 	<br><img src="https://dl.dropboxusercontent.com/s/vqcvos3ram702u9/vivado1.png?raw=1"  width="40%" height = "40%"><br>
 	<br><img src="	https://dl.dropboxusercontent.com/s/9ixj1lxu6vvi2so/vivado2.png?raw=1"  width="40%" height = "40%"><br>
 4. Install  <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">Java SE</a> (Java  JDK & JRE included in it), although it is likely that you already have these installed due to your other subject. 
-5. Then, download the  <a href="https://alchitry.com/pages/alchitry-labs" target="_blank">Alchitry Lab IDE</a>. This is the IDE where you can write your program in Lucid and flash it to the FPGA via USB connection. 
+5. Then, download the  <a href="https://alchitry.com/alchitry-labs" target="_blank">Alchitry Lab IDE</a>. This is the IDE where you can write your program in Lucid and flash it to the FPGA via USB connection. 
 
 > If needed, see step by step installation <a href="https://docs.google.com/presentation/d/12bO_RXe9b0qlX6HdUPo9ZpgxnwFnCszzvEmzzHluGng/edit?usp=sharing" target="_blank">here</a>. 
 
@@ -69,7 +69,7 @@ Give it some name, ensure that it is Au and Lucid. Also, use the IO Element Base
 Now you should see that you have a project with several files:
 <br><img src="https://dl.dropboxusercontent.com/s/qpvoetamz6vz9xw/1c.png?raw=1"  width="60%" height = "60%">
 
-> You need to do your own self-study part to fill in the gaps and understand how the code works better by reading the <a href="https://alchitry.com/pages/lucid-fpga-tutorials" target="_blank">tutorials</a> provided by the original developer. The course handout also provides you some useful self-study materials. This document is only made to *complement* and *speed up* your self-study process, but it doesn't mean that you can forget about reading anything else. 
+> You need to do your own self-study part to fill in the gaps and understand how the code works better by reading the <a href="https://alchitry.com/lucid" target="_blank">tutorials</a> provided by the original developer. The course handout also provides you some useful self-study materials. This document is only made to *complement* and *speed up* your self-study process, but it doesn't mean that you can forget about reading anything else. 
 
 If you haven't read any tutorials about Lucid and Alchitry yet, here's some quick information: 
 * Under `Source`, thats where you will write **all** your script. `alu.luc` is like the `main` script, so do not delete that. 
@@ -183,7 +183,7 @@ The template **Io Base** already prepare these terminal namings for you, and def
 The `.acf` file defines input and output pins from the original schematic of `Alchitry Au` to its symbols to be used when we code, e.g: `io_led`, `io_dip`, etc. The ones with the keyword `pulldown` signifies **input** pins, while the rest are digital output. 
 > An input pin with `pulldown` resistor will by default give a value of `0` if there's no input being supplied to prevent a *floating/undefined* input volrage.** It is useful to read abit about <a href="https://www.electronics-tutorials.ws/logic/pull-up-resistor.html" target="_blank">pull-down and pull-up resistors</a>  if you were to implement a unit from scratch like our Mini-Hardware Project.  
 
-This document will not teach you how to define more inputs for use on the `Br` board yet, or use the 7-segments to display numbers. If you're interested to learn more, read the tutorial from the original author about <a href="https://alchitry.com/blogs/tutorials/io-element" target="_blank">Io Element</a>
+This document will not teach you how to define more inputs for use on the `Br` board yet, or use the 7-segments to display numbers. If you're interested to learn more, read the tutorial from the original author about <a href="https://alchitry.com/io-element" target="_blank">Io Element</a>
 
 
 
@@ -389,7 +389,7 @@ By implementing this adder on the FPGA, we have learned:
 
 > Now of course if you have read the documentation, you can simply implement an addition using a `+` in Lucid without having to resort to basic boolean logic because the interpreter will implement the addition for you. Either way, the hardware circuitry is still the same. 
 
-You are highly encouraged to read <a href="https://alchitry.com/blogs/tutorials/your-first-fpga-project" target="_blank">this tutorial</a>  to enhance your understanding afterwards. 
+You are highly encouraged to read <a href="https://alchitry.com/your-first-fpga-project" target="_blank">this tutorial</a>  to enhance your understanding afterwards. 
 
 **Important Notice about external IO:** 
 > If you would like to use **external IO** with the custom `Br` board, jump to [this](https://natalieagus.github.io/50002/fpga_3.html#using-external-output) section right away and refer to this [Br pins](https://drive.google.com/file/d/1T3Vth8YpqDq1iOcPEW6TWjwVH0-h-59C/view?usp=sharing). 

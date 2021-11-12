@@ -73,7 +73,7 @@ module seq_plus_two (
   }
 ``` 
 
-*Note: `.clk(clk)` means to connect the `clk` signal of the `dff` with the `clk` signal of `seq_plus_two` (supplied as input from the on-board clock hardware).* There one other way to declare the `clk` and the `rst` signal before the always block -- a <a href="https://alchitry.com/blogs/tutorials/synchronous-logic-1" target="_blank">nested</a>  way. It works the same, just probably is easier to type when you have many modules to declare that receives the same `clk` and `rst` signal. 
+*Note: `.clk(clk)` means to connect the `clk` signal of the `dff` with the `clk` signal of `seq_plus_two` (supplied as input from the on-board clock hardware).* There one other way to declare the `clk` and the `rst` signal before the always block -- a <a href="https://alchitry.com/synchronous-logic" target="_blank">nested</a>  way. It works the same, just probably is easier to type when you have many modules to declare that receives the same `clk` and `rst` signal. 
 
 The `dff` has two important terminals, `.d` for input and `.q` for output. We simply have to connect them with the adder. Let's declare the adder as well and connect them:
 
@@ -138,7 +138,7 @@ io_led[0] = seqplustwo.out;
 
 Now you should be able to see that the LEDs are lighted up and they resembles bits of data that's incremented by 2 periodically. ***BUT**, when you click the reset button, it will **not** restart the addition back from `0` again! Can you guess why? Don't worry about it for now. We will tackle this problem in Part 3  of the tutorial.* 
 
-To enhance your understanding in creating synchronous / sequential logic modules, **it is important for you** to read <a href="https://alchitry.com/blogs/tutorials/synchronous-logic-1" target="_blank">this</a>  tutorial written by the original author. 
+To enhance your understanding in creating synchronous / sequential logic modules, **it is important for you** to read <a href="https://alchitry.com/synchronous-logic" target="_blank">this</a>  tutorial written by the original author. 
 
 
 ## Creating a Finite State Machine 
@@ -258,7 +258,7 @@ The Tools (Vivado, Alchitry) will intrepret this code and **synthesize** an appr
 You can download `seq_plus_vary.luc` <a href="https://github.com/natalieagus/SampleAlchitryProjects/blob/master/GettingStartedWithFPGA/source/seq_plus_vary.luc" target="_blank">here</a>.
 ## Summary
 
-In this document, we are given a glimpse on how to create a synchronous / sequential logic circuit. Please also read <a href="https://alchitry.com/blogs/tutorials/synchronous-logic-1" target="_blank">this tutorial</a> to enhance your understanding. We were also introduced into two new types: `dff` and `fsm`. You are recommended to read more about FSM <a href="https://alchitry.com/blogs/tutorials/roms-and-fsms-alchitry" target="_blank">here</a>. 
+In this document, we are given a glimpse on how to create a synchronous / sequential logic circuit. Please also read <a href="https://alchitry.com/synchronous-logic" target="_blank">this tutorial</a> to enhance your understanding. We were also introduced into two new types: `dff` and `fsm`. You are recommended to read more about FSM <a href="https://alchitry.com/roms-and-fsms" target="_blank">here</a>. 
 
 It is important to always remind yourself that the `always` block contains the **hardware description** of your device. It is **NOT** a piece of code that is sequentially executed by a processor like our usual Python and C code (there's no processor here!). They're *interpreted* by Xilinx and Alchitry tools sequentially, but not evaluated sequentially. **You should always remind yourself that everything in an always block as being evaluated continuously.** 
 

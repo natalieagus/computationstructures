@@ -23,7 +23,7 @@ This is the final document in the series. It mainly shows how to handle I/O unit
 
 *Note*: We won't be discussing how to use the 7 segment here. 
 
-> There's lots of <a href="https://alchitry.com/blogs/tutorials/io-element" target="_blank">online tutorial</a> on how to operate a 7-segment. **The Io Element Base template** itself also already contain a sample on how to use the 7-segment, so please study it. 
+> There's lots of <a href="https://alchitry.com/io-element" target="_blank">online tutorial</a> on how to operate a 7-segment. **The Io Element Base template** itself also already contain a sample on how to use the 7-segment, so please study it. 
 
 >If you do buy an external 7-segment, please take note of the required **supply voltage**. Also pay attention whether you're buying a <a href="https://www.electronics-tutorials.ws/blog/7-segment-display-tutorial.html" target="_blank">cathode or anode</a>  7-segment. 
 >
@@ -78,7 +78,7 @@ Now if you **hold** `io_button[0]` **long enough** then the output is reset back
 
 Consider the following time-plot of `reset`, `slowclock` and actual FPGA `clk`:
 
-<img src="https://dl.dropboxusercontent.com/s/u8hh5xcjpej97yl/timesync.png?raw=1"  alt=“F1”  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/u8hh5xcjpej97yl/timesync.png?raw=1"    width="60%" height = "60%">
 
 It is **entirely possible** for the slowclock (rising edge) to entirely **miss** the "reset" button (in our example, we used `io_button[0]` as manual reset) press *if the press isn't covering the shaded region* (depending on how slow the clock is).  
 
@@ -90,7 +90,7 @@ Plus, if it happens to *change* at the shaded region then we might run into *met
 
 Normally, we can entirely avoid the *metastability* and *desynchronisation* problem using the built-in component: `reset_conditioner`.
 
-The `reset_conditioner` in `au_top.luc` **synchronises** the reset signal **with the actual FPGA clock** so that all synchronous units in the FPGA will come out of reset at once, so that there won't be a case where some `dff` stay reset one cycle longer than the other.  You can read more about **reset_conditioner**  at the end of <a href="https://alchitry.com/blogs/tutorials/synchronous-logic-1" target="_blank">this</a> tutorial and <a href="https://learn.sparkfun.com/tutorials/external-io-and-metastability/all" target="_blank">this</a> tutorial as well.
+The `reset_conditioner` in `au_top.luc` **synchronises** the reset signal **with the actual FPGA clock** so that all synchronous units in the FPGA will come out of reset at once, so that there won't be a case where some `dff` stay reset one cycle longer than the other.  You can read more about **reset_conditioner**  at the end of <a href="https://alchitry.com/synchronous-logic" target="_blank">this</a> tutorial and <a href="https://learn.sparkfun.com/tutorials/external-io-and-metastability/all" target="_blank">this</a> tutorial as well.
 
 For our `seq_plus_two.luc` unit, we used a custom clock and a *separate* manual reset from the rest of the units implemented in the FPGA.  While for this case alone it *seems* fine, it is a bad idea because if you have a more complicated system **it can be** **disastrous**:
  * If you manually reset each and every one of them without any kind of conditioner unit, then there's no way to ensure that all units come out of the reset at the same time. 
@@ -117,7 +117,7 @@ We need another module called the **edge detector** because we just want to have
 > In 1 second, 100 million cycles of the FPGA clock have passed. We only one ONE out of the 100 million cycles to trigger the +2.  
 
 The time diagram below illustrates how an edge detector work:
-<img src="https://dl.dropboxusercontent.com/s/f6jzjq0smatdb5r/edge.png?raw=1"  alt=“F1”  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/f6jzjq0smatdb5r/edge.png?raw=1"    width="60%" height = "60%">
 
 Add the edge-detector component (under Pulse Manipulation), and declare it in `seq_plus_two.luc`:
 ```cpp
@@ -475,7 +475,7 @@ Then connect the 3 LEDs on a breadboard with some resistors. If you don't know h
 * Connect the resistor anywhere within the circuit loop. 
 
 All three LEDs should light up if you key in the right sequence: 
-<img src="https://dl.dropboxusercontent.com/s/d4il3wbpcvtshx9/outputvalues.png?raw=1"  alt=“F1”  width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/d4il3wbpcvtshx9/outputvalues.png?raw=1"    width="70%" height = "70%">
 
 Likewise, you can define an **input** pin in the following format,
 ```cpp
@@ -498,9 +498,9 @@ pin <pin name> <Br terminal pin name> pullup
 This document builds up on some of the things we learned before in Part 1 and 2, and it mainly focuses on how to use external I/O devices and reset the whole system properly. You may find the complete project used in all three parts of this introduction to FPGA <a href="https://github.com/natalieagus/SampleAlchitryProjects" target="_blank">here</a>.  
 
 You are recommended to read further on (if they're applicable to your project of course) :
-1.  How <a href="https://alchitry.com/blogs/tutorials/io-element" target="_blank">7-Segment works</a> (you can learn using the onboard 7-segment on Alchitry Io first before buying external units). **7-Segment component** is useful to display numbers, e.g: display score, time left, etc. 
+1.  How <a href="https://alchitry.com/io-element" target="_blank">7-Segment works</a> (you can learn using the onboard 7-segment on Alchitry Io first before buying external units). **7-Segment component** is useful to display numbers, e.g: display score, time left, etc. 
 2. How LED Strips work (e.g: WS2812B, or SK6812 LEDs). You can refer to online tutorials like  <a href="https://vivonomicon.com/2018/12/24/learning-how-to-fpga-with-neopixel-leds/" target="_blank">this</a> one. We have some sample LED writers that's Au and WS2812B compatible <a href="https://github.com/natalieagus/SampleAlchitryProjects/tree/master/LEDStripTest" target="_blank">here</a>  to get you started. 
-3. How you can utilize another powerful **storage device:** the default RAM component. You can find the <a href="https://alchitry.com/blogs/tutorials/hello-your_name_here" target="_blank"> tutorial</a> written by the original author here (there's single-port and dual-port RAM). 
+3. How you can utilize another powerful **storage device:** the default RAM component. You can find the <a href="https://alchitry.com/hello-your_name_here" target="_blank"> tutorial</a> written by the original author here (there's single-port and dual-port RAM). 
 
 	<span style="background-color:yellow"><strong>RAM component</strong> is <strong>especially useful</strong> if you need to store a **large** amount of data </span>, e.g data to be rendered out to large (32x32 or 64x32, etc) LED matrices. It is convenient to use the `dff` for small data storages, but you will run out of logic units real fast if you were to create thousands of dffs (not to mention the bizzare amount of time needed to compile the code). 
 
