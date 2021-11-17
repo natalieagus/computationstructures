@@ -128,7 +128,7 @@ Explanation:
 
 Using these steps, we can come up with the *simplest* (not necessarily the most efficient, cheapest, smallest, etc), most straightforward logic synthesis. 
 
-Notice that if the expression contains many terms summed together, we need bigger OR gate at the output. This causes the size of our device to be bigger, and therefore more expensive. In the later sections, we learn how to ***reduce*** the boolean expression such that we have lesser number of terms, and thus are able to synthesize the logic more effectively. 
+Notice that if the expression contains many terms summed together, we need bigger OR gate at the output. This causes the size of our device to be bigger, and therefore more expensive. In the later sections, we learn how to ***reduce*** the boolean expression such that we have less number of terms, and thus are able to synthesize the logic more effectively. 
 
 ## Boolean Algebra Properties
 Another tool we need to master before being able to minimise or reduce boolean expression is boolean algebra properties. They are useful to manipulate boolean expressions so that we quations. A summary end up with simpler terms and reduce the terms, while still keeping the logic equivalent. 
@@ -151,7 +151,7 @@ $$\begin{aligned}
 \text{Distributive law: } & a(b+c) = ab+ac, \text{ --- OR distributive},\\ & a+bc = (a+b)(a+c) \text{ --- AND distributive}
 \end{aligned}$$
 
-The two laws below are useful to perform boolean minimisation because we might end up with lesser number of terms while keeping the same logic:
+The two laws below are useful to perform boolean minimisation because we might end up with less number of terms while keeping the same logic:
 
 $$\begin{aligned}
 \text{Absorption law: } & a+ab=a, \\ & a+\bar{a}b = a+b,\\ &a(a+b) = a, \\ &a(\bar{a}+b) = ab\\
@@ -302,7 +302,7 @@ Or the **primitive** way:
 
 	<img src="https://dl.dropboxusercontent.com/s/ft9xplwm26ksgks/devmos3.png?raw=1"    width="60%" height = "60%">
 
-This requires **14 MOSFETs** to build, lesser than the previous design. It is definitely easier (for us) to create a combinational logic device using a bunch of universal gates, but it comes at the cost of money and size. 
+This requires **14 MOSFETs** to build, less than the previous design. It is definitely easier (for us) to create a combinational logic device using a bunch of universal gates, but it comes at the cost of money and size. 
 
 Note that the CMOS recipes that we learn in this course also **does not guarantee** that you can build a device with **minimised number of transistors,** given its functional specification. It is an *art* to create the most efficient circuit in terms of money, size, and usage. 
 
